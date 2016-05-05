@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="jumbotron text-center">
+        <h1>Add your potatoes</h1>
+    </div>
+    
+    <div class="container new-potato">
+        <img ng-if="potato.image" ng-src={{potato.image}}>
+        
+        <div class="new-form">
+            <form ng-submit="newPotato()">
+                <div class="form-group">
+                    <label for="name">Potato Name</label>
+                    <input placeholder="Potato Name" ng-model="potato.name" id="name" class="form-control"/>
+                  </div>
+                  <div class="form-group">
+                    <label for="image">Potato Image</label>
+                    <input placeholder="Potato Image URL" ng-model="potato.image" id="image" class="form-control"/>
+                  </div>
+                  <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

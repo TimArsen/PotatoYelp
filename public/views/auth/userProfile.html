@@ -1,0 +1,26 @@
+<div class="container">
+    
+    <div class="jumbotron text-center">
+        <h1>Update User Profile</h1>
+    </div>
+    
+    <div class="edit-form">
+        <form ng-submit="updateProfile()">
+            <div class="form-group">
+                <label for="username">Update Username</label>
+                <input placeholder="Enter New Username" ng-model="currentUser.username" id="name" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label for="password">Update Password</label>
+                <input placeholder="Enter New Password" ng-model="currentUser.password" id="password" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label for="avatarUrl">Update Profile Picture</label>
+                <input placeholder="Enter Image URL" ng-model="currentUser.avatarUrl" id="image" class="form-control"/>
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+        <img ng-src="{{ currentUser.avatarUrl }}">
+    </div>
+    
+</div>

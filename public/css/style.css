@@ -1,0 +1,239 @@
+a:hover {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.navbar {
+    margin: 0;
+}
+
+.navbar ul li {
+    transition: all 0.3s ease-in-out;
+    background: #F8F8F8;
+}
+
+.navbar ul li:hover {
+    background: #eee;
+}
+
+.new-form {
+    width: 30%; 
+    margin: 30px auto;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.container img {
+    clear: both;
+    display: block;
+}
+
+#logo {
+    display: inline;
+    height: 40px;
+    width: 40px;
+    vertical-align: top;
+    margin-top: -12px;
+}
+
+.splash {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100%;
+    background: url('http://davehughesdevelopment.com/papas/potato-bg.jpg');
+    background-position: center top;
+    background-size: cover;
+    position: fixed;
+}
+
+.splash .content-hold {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    text-align: center;
+}
+
+.splash .content-hold h1 {
+    margin: 0;
+    padding: 0;
+    font-family: 'Amatic SC', cursive;
+    font-size: 6em;
+    color: #fff;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.splash .content-hold .kicker {
+    margin: 5px 0 0 0;
+    padding: 0;
+    display: block;
+    font-size: 1.2em;
+    color: #000;
+}
+
+.splash .content-hold .button-hold {
+    text-align: center;
+    margin: 30px 0 0 0;
+}
+
+.splash .content-hold .button-hold a {
+    color: #fff;
+    font-weight: 500;
+    display: inline-block;
+    padding: 10px 0;
+    width: 150px;
+    margin: 0 10px 0 10px;
+    border-radius: 50px;
+    transition: all 0.3s ease-in-out;
+}
+
+.splash .content-hold .button-hold a:nth-child(1) {
+    background: #74CB78;
+}
+
+.splash .content-hold .button-hold a:nth-child(2) {
+    background: rgba(0, 0, 0, .3)
+}
+
+.splash .content-hold .button-hold a:nth-child(2):hover {
+    background: rgba(0, 0, 0, .5)
+}
+
+
+header {
+    margin: 40px 0 20px 0;
+    border-bottom: 1px solid #eee;
+}
+
+header h1 {
+    font-family: 'Amatic SC';
+    font-weight: 700;
+    font-size: 7rem;
+    line-height: 1em;
+    margin: 0;
+    color: #444;
+}
+
+header p {
+    font-style: italic;
+}
+
+/* POTATOES PAGE STYLES */
+.filter-options {
+    margin: 0 0 20px 0;
+    background: #F8F8F8;
+    padding: 20px 10px;
+    display: block;
+}
+
+.filter-options h2 {
+    font-family: 'Francois One';
+    text-transform: uppercase;
+    font-size: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+.filter-options ul {
+    margin: 15px 0 0 0;
+    padding: 0;
+}
+
+.filter-options ul li {
+    display: inline-block;
+    margin: 0 8px 5px 0;
+    padding: 8px 10px;
+    border: 1px solid #777;
+    font-size: 1.2rem;
+    transition: all 0.4s ease;
+}
+
+.filter-options ul li:hover {
+    background: #999;
+    cursor: pointer;
+}
+
+.filter-options-selected {
+    background: #333 !important;
+    color: #eee; 
+}
+
+
+.potatoes-listing {
+    margin: 40px auto 0 auto;  
+}
+
+.potato-image {
+    height: 150px;
+    overflow: hidden;
+    border-bottom: 1px solid #efefef;
+}
+
+.potatoes-listing img {
+    width: 100%;
+    overflow: hidden;
+}
+
+.potato-gallery-potato {
+    margin: 0 0 15px 0;
+}
+
+.potato-gallery-potato h3 {
+    font-size: 2rem;
+}
+
+.potato-gallery-potato span {
+    font-size: 1rem;
+    color: #888;
+}
+
+.potato-gallery-potato span:nth-child(2) {
+    margin: 0 0 0 10px;
+}
+
+
+
+
+
+
+/* FOOTER STYLES */
+footer {
+    background: #F8F8F8;
+    margin: 100px 0 0 0;
+    height: 250px;
+    display: block;
+    border-top: 1px solid #E7E7E7;
+    padding: 50px 0 0 0;
+}
+
+.footer-nav {
+    text-align: center;
+}
+
+.footer-nav ul {
+    margin: 0;
+    padding: 0;
+}
+
+.footer-nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+
+
+@media (max-width: 768px) {
+      .splash .content-hold h1 {
+        font-size: 5em;
+      }
+  
+      .splash .content-hold .button-hold a {
+        margin: 3px 0;
+      }
+  
+    .potato-gallery-potato h3 {
+        font-size: 1.5rem;
+        min-height: 50px;
+    }
+}

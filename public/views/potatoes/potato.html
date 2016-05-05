@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="jumbotron text-center">
+        <h1>{{potato.name}}</h1>
+    </div>
+    
+    <div class="container">
+        <img ng-src="{{ potato.image }}"></img>
+        <a class="btn btn-sm btn-danger delete-button" ng-click="deletePotato(potato)">Delete</a>
+        <a class="btn btn-sm btn-warning" href="/potatoes/{{ potato._id }}/edit">Edit</a>
+        <a class="btn btn-sm btn-success" href="/potatoes/reviews/{{potato._id}}">Review</a>
+        
+        <h1>Reviews</h1>
+        <div ng-repeat="review in reviews">
+            {{ review.rating }} - {{ review.comment }} - {{ review.author.username }}
+        </div>
+    </div>
+</div>

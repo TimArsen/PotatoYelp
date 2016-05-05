@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="jumbotron text-center">
+        <h1>Review {{ potato.name }}</h1>
+    </div>
+    
+    <div class="container new-potato">
+        <img ng-if="potato.image" ng-src={{potato.image}}>
+        
+        <div class="new-form">
+            <form ng-submit="updateReview()">
+                <div class="form-group">
+                    <label for="name">Review Rating</label>
+                    <input placeholder="Rating" ng-model="review.rating" id="rating" class="form-control"/>
+                  </div>
+                  <div class="form-group">
+                    <label for="image">Review Comment</label>
+                    <input placeholder="Comment" ng-model="review.comment" id="comment" class="form-control"/>
+                  </div>
+                  <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
