@@ -3,6 +3,7 @@ var Potato      = require('./models/potato');
 var User        = require('./models/user');
 var Review        = require('./models/review');
 var passport    = require('passport');
+var middleware  = require("./middleware/middleware");
 
     module.exports = function(app) {
 
@@ -24,7 +25,7 @@ var passport    = require('passport');
         });
 
         // Create route
-        app.post('/api/potatoes', function(req, res){
+        app.post('/api/potatoes', middleware.isLoggedIn, function(req, res){
             var potato = req.body;
             potato.author = { id: req.user._id, username: req.user.username};
             Potato.create(potato, function(err, newPotato){
@@ -48,7 +49,7 @@ var passport    = require('passport');
         });
         
         // Update route
-        app.put('/api/potatoes/:id', function(req, res){
+        app.put('/api/potatoes/:id', middleware.checkPotatoOwnership, function(req, res){
            Potato.findByIdAndUpdate(req.params.id, req.body, function(err, newPotato){
                 if (err) {
                     console.log(err);
@@ -59,7 +60,7 @@ var passport    = require('passport');
         });
         
         // Delete Route
-        app.delete('/api/potatoes/:id', function(req, res){
+        app.delete('/api/potatoes/:id', middleware.checkPotatoOwnership, function(req, res){
             Potato.findByIdAndRemove(req.params.id, function(err){
                 if(err){
                     console.log(err);
@@ -70,8 +71,7 @@ var passport    = require('passport');
     //Review API Routes ==========================================================
 
         // Create route
-        app.post('/api/reviews', function(req, res){
-            console.log("review create route");
+        app.post('/api/reviews', middleware.isLoggedIn, function(req, res){
             Potato.findById(req.body.potato.id, function(err, potato){
                if(err){
                    console.log(err);
@@ -105,7 +105,7 @@ var passport    = require('passport');
         });
         
         // Update route
-        app.put('/api/reviews/:id', function(req, res){
+        app.put('/api/reviews/:id', middleware.checkReviewOwnership, function(req, res){
            Review.findByIdAndUpdate(req.params.id, req.body, function(err, newReview){
                 if (err) {
                     console.log(err);
@@ -116,7 +116,7 @@ var passport    = require('passport');
         });
         
         // Delete Route
-        app.delete('/api/potatoes/:potato_id/reviews/:id', function(req, res){
+        app.delete('/api/potatoes/:potato_id/reviews/:id', middleware.checkReviewOwnership, function(req, res){
             Review.findByIdAndRemove(req.params.id, function(err){
                 if(err){
                     console.log(err);
