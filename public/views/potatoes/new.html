@@ -4,7 +4,9 @@
     </div>
     
     <div class="container new-potato">
-        <img ng-if="potato.image" ng-src={{potato.image}}>
+        <div class="image-preview">
+            <img class="preview" ng-if="potato.image" ng-src={{potato.image}}>  
+        </div>
         
         <div class="new-form">
             <form ng-submit="newPotato()">

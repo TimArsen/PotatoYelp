@@ -4,7 +4,7 @@
     </div>
     
     <div class="container">
-        <img ng-src="{{ potato.image }}"></img>
+        <img class="potato-image" ng-src="{{ potato.image }}"></img>
         <a class="btn btn-sm btn-danger delete-button" ng-click="deletePotato(potato)">Delete</a>
         <a class="btn btn-sm btn-warning" href="/potatoes/{{ potato._id }}/edit">Edit</a>
         <a class="btn btn-sm btn-success" href="/potatoes/reviews/{{potato._id}}">Review</a>

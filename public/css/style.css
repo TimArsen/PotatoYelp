@@ -237,3 +237,15 @@ footer {
         min-height: 50px;
     }
 }
+
+.image-preview {
+    float: right;
+}
+.preview {
+     max-width: 300px;
+     max-height: 300px;
+ }
+ 
+ .potato-image {
+     max-height: 50vh;
+ }
