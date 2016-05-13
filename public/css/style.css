@@ -273,4 +273,24 @@ footer {
      background-color: #DDD;
  }
 
+.edit-form {
+    max-width: 600px; 
+    left: 50%;
+    position: relative;
+    transform: translateX(-50%);
+    background: white;
+    padding: .5em;
+    margin-top: 10px;
+    border-radius: .5em;
+}
+.image-preview {
+    height: 150px;
+    width: 100%;
+}
+
+.image-preview img {
+    height: 100%;
+    display: block;
+    margin: .5em auto;
+}
  
