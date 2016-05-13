@@ -260,3 +260,17 @@ footer {
  .potato-image {
      max-height: 50vh;
  }
+ 
+ .potato-container {
+     margin-top: 10px;
+ }
+ .review {
+    border-radius: .5em;
+    padding: .5em;
+}
+ 
+ .odd-review {
+     background-color: #DDD;
+ }
+
+ 

@@ -1,17 +1,47 @@
-<div class="container">
-    <div class="jumbotron text-center">
-        <h1>{{potato.name}}</h1>
-    </div>
-    
-    <div class="container">
-        <img class="potato-image" ng-src="{{ potato.image }}"></img>
-        <a class="btn btn-sm btn-danger delete-button" ng-click="deletePotato(potato)">Delete</a>
-        <a class="btn btn-sm btn-warning" href="/potatoes/{{ potato._id }}/edit">Edit</a>
-        <a class="btn btn-sm btn-success" href="/potatoes/reviews/{{potato._id}}">Review</a>
-        
-        <h1>Reviews</h1>
-        <div ng-repeat="review in reviews">
-            {{ review.rating }} - {{ review.comment }} - {{ review.author.username }}
-        </div>
-    </div>
+<div class="container potato-container">
+     <div class="row">
+        <div class="col-md-3">
+            <p class="lead">Hawt Potato</p>
+            <div class="list-group">
+                <li class="list-group-item active">Info 1</li>
+                <li class="list-group-item">Info 2</li>
+                <li class="list-group-item">Info 3</li>
+            </div>
+        </div> <!--Left column-->
+        <div class="col-md-9">
+            <div class="thumbnail">
+                <img class="potato-image" ng-src="{{ potato.image }}"></img>
+                <div class="caption-full">
+                    <h1>{{potato.name}}</h1>
+                    <p>
+                        <em>Submitted By <strong>{{potato.author.username}}</strong></em>
+                    </p>
+                    <div class="text-right">
+                        <a class="btn btn-sm btn-danger delete-button" ng-click="deletePotato(potato)">Delete</a>
+                        <a class="btn btn-sm btn-warning" href="/potatoes/{{ potato._id }}/edit">Edit</a>
+                    </div>
+                    <p>Potato Description HERE!!!</p>
+                </div>  <!--caption-->
+            </div>  <!--Thumbnail-->
+            <div class="well">
+                <a class="btn btn-sm btn-success pull-right" href="/potatoes/reviews/{{potato._id}}">Review</a>
+                <h3>Reviews for {{potato.name}}</h3>
+                <hr>
+                <div ng-repeat="review in reviews">
+                    <div class="review" ng-class-odd="'odd-review'">
+                        <strong>{{ review.author.username }}</strong>
+                        <span class="pull-right">10 days ago **ADD DATE HERE**</span>
+                        <p>
+                            {{ review.comment }} - {{ review.rating }}
+                        </p>
+                        <div class="text-right">
+                            <a class="btn btn-xs btn-warning" href="#">Edit</a>
+                            <a class="btn btn-xs btn-danger" href='#'>Delete</a>
+                        </div>
+                    </div>  <!--review div-->
+                </div>    <!--reviews-->
+             </div> <!--Ratings well-->
+        </div> <!--Right column-->
+    </div> <!--Row-->
+</div>    <!--Container-->
 </div>
