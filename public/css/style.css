@@ -1,3 +1,9 @@
+body {
+    background: url('http://davehughesdevelopment.com/papas/potato-bg.jpg');
+    background-position: center top;
+    background-size: cover;
+}
+
 a:hover {
     text-decoration: none;
     cursor: pointer;
@@ -104,6 +110,7 @@ a:hover {
 header {
     margin: 40px 0 20px 0;
     border-bottom: 1px solid #eee;
+    color: white;
 }
 
 header h1 {
@@ -112,7 +119,11 @@ header h1 {
     font-size: 7rem;
     line-height: 1em;
     margin: 0;
-    color: #444;
+}
+
+header .logo {
+    height: 100px;
+    float: left;
 }
 
 header p {
