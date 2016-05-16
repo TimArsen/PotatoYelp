@@ -41,6 +41,13 @@ a:hover {
     margin-top: -12px;
 }
 
+
+
+
+
+/* SPLASH STYLES
+==========================================================================
+======================================================================= */
 .splash {
     margin: 0;
     padding: 0;
@@ -208,15 +215,15 @@ header p {
 
 
 
-
-/* FOOTER STYLES */
+/* FOOTER STYLES
+==========================================================================
+======================================================================= */
 footer {
     background: #F8F8F8;
     margin: 100px 0 0 0;
-    height: 250px;
     display: block;
     border-top: 1px solid #E7E7E7;
-    padding: 50px 0 0 0;
+    padding: 50px;
 }
 
 .footer-nav {
@@ -231,6 +238,12 @@ footer {
 .footer-nav ul li {
     display: inline;
     margin: 0 10px;
+}
+
+.copyright {
+  display: block;
+  text-align: center;
+  margin: 10px auto 0px auto;
 }
 
 
