@@ -46,7 +46,7 @@ require('./app/routes')(app); // configure our routes
 
 // start app ===============================================
 // startup our app at http://localhost:8080
-app.listen(3000, function() {
+app.listen(process.env.PORT, function() {
 	console.log("The frontend server is running on port 3000!");
 });
 
