@@ -26,7 +26,11 @@
                         <a class="btn btn-sm btn-warning" href="/potatoes/{{ potato._id }}/edit">Edit</a>
                     </div>
                     <hr>
-                    <p>Potato Description HERE!!!</p>
+                    <p>
+                        Average Rating: {{potato.average_rating}} out of 5 potatoes<br> 
+                        {{potato.num_of_reviews}} reviews
+                    </p>
+                    <p>{{potato.description}}</p>
                 </div>  <!--caption-->
             </div>  <!--Thumbnail-->
             <div class="well">
