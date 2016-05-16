@@ -186,7 +186,6 @@ header p {
 .potato-image {
     height: 150px;
     overflow: hidden;
-    border-bottom: 1px solid #efefef;
 }
 
 .potatoes-listing img {
@@ -307,3 +306,18 @@ footer {
     display: block;
     margin: .5em auto;
 }
+
+hr {
+    width: 90%;    
+}
+
+#caption-content {
+    padding: 0 22px 20px;
+    
+}
+
+#review-btn {
+    margin: 0 7px;
+}
+ 
+

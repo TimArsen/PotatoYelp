@@ -1,5 +1,6 @@
 <div class="container potato-container">
      <div class="row">
+    <!--
         <div class="col-md-3">
             <p class="lead">Hawt Potato</p>
             <div class="list-group">
@@ -7,11 +8,15 @@
                 <li class="list-group-item">Info 2</li>
                 <li class="list-group-item">Info 3</li>
             </div>
-        </div> <!--Left column-->
-        <div class="col-md-9">
+        </div> <!--Left column
+    -->
+        <div class="col-md-1"></div>
+        <div class="col-md-10" id="show-content">
             <div class="thumbnail">
                 <img class="potato-image" ng-src="{{ potato.image }}"></img>
-                <div class="caption-full">
+                
+                <div class="caption-full" id="caption-content">
+                    <hr>
                     <h1>{{potato.name}}</h1>
                     <p>
                         <em>Submitted By <strong>{{potato.author.username}}</strong></em>
@@ -20,11 +25,12 @@
                         <a class="btn btn-sm btn-danger delete-button" ng-click="deletePotato(potato)">Delete</a>
                         <a class="btn btn-sm btn-warning" href="/potatoes/{{ potato._id }}/edit">Edit</a>
                     </div>
+                    <hr>
                     <p>Potato Description HERE!!!</p>
                 </div>  <!--caption-->
             </div>  <!--Thumbnail-->
             <div class="well">
-                <a class="btn btn-sm btn-success pull-right" href="/potatoes/reviews/{{potato._id}}">Review</a>
+                <a class="btn btn-sm btn-success pull-right" id="review-btn" href="/potatoes/reviews/{{potato._id}}">Review</a>
                 <h3>Reviews for {{potato.name}}</h3>
                 <hr>
                 <div ng-repeat="review in reviews">
