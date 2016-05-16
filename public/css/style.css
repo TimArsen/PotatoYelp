@@ -23,7 +23,7 @@ a:hover {
 }
 
 .new-form {
-    width: 30%; 
+    width: 30%;
     margin: 30px auto;
     font-family: 'Open Sans', sans-serif;
 }
@@ -50,6 +50,7 @@ a:hover {
     background-position: center top;
     background-size: cover;
     position: fixed;
+    z-index: 999;
 }
 
 .splash .content-hold {
@@ -167,12 +168,12 @@ header p {
 
 .filter-options-selected {
     background: #333 !important;
-    color: #eee; 
+    color: #eee;
 }
 
 
 .potatoes-listing {
-    margin: 40px auto 0 auto;  
+    margin: 40px auto 0 auto;
 }
 
 .potato-image {
@@ -238,11 +239,11 @@ footer {
       .splash .content-hold h1 {
         font-size: 5em;
       }
-  
+
       .splash .content-hold .button-hold a {
         margin: 3px 0;
       }
-  
+
     .potato-gallery-potato h3 {
         font-size: 1.5rem;
         min-height: 50px;
@@ -256,11 +257,11 @@ footer {
      max-width: 300px;
      max-height: 300px;
  }
- 
+
  .potato-image {
      max-height: 50vh;
  }
- 
+
  .potato-container {
      margin-top: 10px;
  }
@@ -268,13 +269,13 @@ footer {
     border-radius: .5em;
     padding: .5em;
 }
- 
+
  .odd-review {
      background-color: #DDD;
  }
 
 .edit-form {
-    max-width: 600px; 
+    max-width: 600px;
     left: 50%;
     position: relative;
     transform: translateX(-50%);
@@ -293,4 +294,3 @@ footer {
     display: block;
     margin: .5em auto;
 }
- 
