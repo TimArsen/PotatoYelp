@@ -2,8 +2,9 @@ var mongoose = require('mongoose');
 
 // define our potato model
 module.exports = mongoose.model('Review', {
-    rating : Number,
+    rating : { type: Number, min: 1, max: 5 },
     comment : String,
+    date: { type: Date, default: Date.now },
     potato : {
         id: {
          // type tells mongoose that this property is an ObjectId 
