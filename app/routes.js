@@ -70,9 +70,9 @@ var middleware  = require("./middleware/middleware");
         
     //Review API Routes ==========================================================
 
-        // Create route
+        // Create Review route
         app.post('/api/reviews', middleware.isLoggedIn, function(req, res){
-            Potato.findById(req.body.potato.id, function(err, potato){
+            Potato.findById(req.body.potato.id).populate("reviews").exec(function(err, potato){
                if(err){
                    console.log(err);
                } else {
@@ -80,11 +80,18 @@ var middleware  = require("./middleware/middleware");
                         if(err){
                             console.log(err);
                         } else {
-                            console.log(potato);
                             newReview.author.id = req.user._id;
                             newReview.author.username = req.user.username;
                             newReview.save();
                             potato.reviews.push(newReview);
+                            var average_rating = 0;
+                            console.log(average_rating);
+                            potato.reviews.forEach(function(review){
+                                console.log(review.rating);
+                                average_rating += review.rating;
+                            });
+                            potato.average_rating = average_rating/potato.reviews.length;
+                            potato.num_of_reviews = potato.reviews.length;
                             potato.save();
                             res.json(newReview);
                         }
