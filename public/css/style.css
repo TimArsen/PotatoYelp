@@ -320,4 +320,11 @@ hr {
     margin: 0 7px;
 }
  
+#login-modal {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+    background-color: rgba(0,0,0,.75);
+}
 
