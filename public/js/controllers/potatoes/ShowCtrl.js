@@ -1,4 +1,4 @@
-angular.module('potatoApp').controller('ShowController', function($scope, PotatoResource, $routeParams, $location) {
+angular.module('potatoApp').controller('ShowController', function($scope, PotatoResource, ReviewResource, $routeParams, $location) {
     $scope.reviews = [];
     $scope.potato_id = $routeParams.id;
     $scope.potato = PotatoResource.get({ id: $routeParams.id }, function(potato) {
@@ -6,7 +6,18 @@ angular.module('potatoApp').controller('ShowController', function($scope, Potato
     });
     
     $scope.deletePotato = function(potato){
-        potato.$delete();
-        $location.path("/potatoes");
+        potato.$delete()
+            .then(function(response){ 
+                console.log("This is the delete potato response!"); 
+            });
+    };
+    
+    // !!!UPDATE to update Potato ratings
+    $scope.deleteReview = function(review){
+        $scope.review = ReviewResource.get({ id: review._id }, 
+            function(review) {
+                review.$delete();
+            });
+        
     };
 });

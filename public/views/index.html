@@ -60,15 +60,15 @@
                 <!-- LINK TO OUR PAGES. ANGULAR HANDLES THE ROUTING HERE -->
 
                 <!-- If no user signed in -->
-                <ul class="nav navbar-nav pull-right" ng-if="!currentUser.username">
+                <ul class="nav navbar-nav pull-right" ng-if="!currentUser">
                     <li><a href="/register">Register</a></li>
                     <li><a href="/login">Sign In</a></li>
                 </ul>
 
                 <!-- If user is signed in -->
-                <ul class="nav navbar-nav pull-right" ng-if="currentUser.username">
+                <ul class="nav navbar-nav pull-right" ng-if="currentUser">
                     <li><a href="" ng-click="userLogout()">Log Out</a></li>
-                    <li><a href="/profile">{{currentUser.username}}</a></li>
+                    <li><a href="/profile">{{currentUser}}</a></li>
                 </ul>
 
                 <ul class="nav navbar-nav pull-right">

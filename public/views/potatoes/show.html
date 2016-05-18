@@ -44,9 +44,9 @@
                         <p>
                             {{ review.comment }} - {{ review.rating }}
                         </p>
-                        <div class="text-right">
+                        <div ng-if="$rootScope.currentUser = review.author.username" class="text-right">
                             <a class="btn btn-xs btn-warning" href="#">Edit</a>
-                            <a class="btn btn-xs btn-danger" href='#'>Delete</a>
+                            <a class="btn btn-xs btn-danger" ng-click="deleteReview(review)">Delete</a>
                         </div>
                     </div>  <!--review div-->
                 </div>    <!--reviews-->
