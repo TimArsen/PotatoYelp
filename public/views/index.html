@@ -83,8 +83,12 @@
         <footer>
             <nav class='footer-nav'>
                 <ul>
-                    <li><a href="/login">Sign In</a></li>
-                    <li><a href="/register">Register</a></li>
+                    <!-- If no surrent User-->
+                    <li ng-if="!currentUser"><a href="/login">Sign In</a></li>
+                    <li ng-if="!currentUser"><a href="/register">Register</a></li>
+                    <!-- If current User-->
+                    <li ng-if="currentUser"><a href="" ng-click="userLogout()">Log Out</a></li>
+                    <li ng-if="currentUser"><a href="/profile">{{currentUser}}</a></li>
                     <li><a href="/potatoes">Potatoes</a></li>
                     <li><a href="/potatoes/new">Add Potato</a></li>
                 </ul>
