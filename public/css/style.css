@@ -49,8 +49,7 @@ a:hover {
 }
 
 .new-form {
-    width: 30%;
-    margin: 30px auto;
+    margin: 30px;
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -276,6 +275,7 @@ a.thumbnail:hover {
 ==========================================================================
 ======================================================================= */
 footer {
+    position: fixed;
     background: #8a6d3b;
     background-size: cover;
     color: white;
@@ -285,14 +285,11 @@ footer {
     font-family: "Amatic SC";
     font-size: 2rem;
     font-weight: 700;
+    width: 100%;
+    bottom: 0px;
+
 }
 
-footer {
-    color: white;
-    font-family: "Amatic SC";
-    font-size: 2rem;
-    font-weight: 700;
-}
 
 .footer-nav {
     text-align: center;
@@ -337,20 +334,12 @@ footer {
     }
 }
 
-.image-preview {
-    float: right;
-}
-.preview {
-     max-width: 300px;
-     max-height: 300px;
- }
-
  .potato-image {
      max-height: 50vh;
  }
 
  .potato-container {
-     margin-top: 10px;
+     margin-top: 30px;
  }
  .review {
     border-radius: .5em;
@@ -372,15 +361,28 @@ footer {
     border-radius: .5em;
 }
 .image-preview {
-    height: 150px;
-    width: 100%;
+    position: relative;
+    height: 180px;
+    max-width: 100%;
+    margin: 30px;
 }
 
-.image-preview img {
-    height: 100%;
-    display: block;
-    margin: .5em auto;
-}
+.preview {
+    position: absolute;
+     max-width: 100%;
+     max-height: 180px;
+     margin:  0 auto;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%,-50%);
+ }
+ 
+ #preview-text {
+    text-align: center;
+    color: #ccc;
+    width: 100%;
+ }
+
 
 hr {
     width: 90%;    
@@ -401,4 +403,8 @@ hr {
     width: 100%;
     background-color: #000;
     background-color: rgba(0,0,0,.75);
+}
+
+#new-potato {
+    width: 100%;
 }
