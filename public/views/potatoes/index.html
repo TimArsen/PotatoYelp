@@ -11,9 +11,9 @@
     
     <div class="row filter-options">
         <div class="col-xs-12">
-            <h2>Sorting Options</h2>
+            <div class="title">Sorting Options</div>
         
-            <ul>
+            <ul class="pull-right">
                 <li>Top Rated</li>
                 <li>Most Comments</li>
                 <li>Newest</li>
@@ -31,7 +31,7 @@
                 <div class="caption">
                   <h3>{{potato.name}}</h3>
                   <div class='row'>
-                      <div class='col-xs-12'>
+                      <div class='rating'>
                         <span class='glyphicon glyphicon-star'></span> {{ potato.average_rating }} 
                         <span class='glyphicon glyphicon-comment'></span> {{ potato.num_of_reviews }}
                       </div>

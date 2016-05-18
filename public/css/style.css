@@ -1,25 +1,52 @@
 body {
-    background: url('http://davehughesdevelopment.com/papas/potato-bg.jpg');
-    background-position: center top;
-    background-size: cover;
+    background-color: #74CB78;
 }
 
+a {
+    color: inherit;
+}
 a:hover {
     text-decoration: none;
     cursor: pointer;
 }
 
-.navbar {
+ h3 {
+    color: white;
+    font-family: 'Amatic SC';
+    font-size: 4rem;
+    font-weight: 700;
     margin: 0;
 }
 
+.navbar {
+    margin: 0;
+    background: url('https://corybuckley.files.wordpress.com/2011/04/burlap.jpg');
+    border-color: #74CB78;
+    background-size: contain;
+    color: white;
+    font-family: 'Amatic SC';
+    font-size: 2rem;
+    font-weight: 700;
+    border-bottom: 3px solid #8a6d3b;
+}
+.navbar-brand, .navbar-brand:hover {
+    color: white;
+    font-size: 3rem;
+}
+.navbar-nav>li>a {
+    color: white;
+}
+ 
 .navbar ul li {
+    color: white;
     transition: all 0.3s ease-in-out;
-    background: #F8F8F8;
+    border-radius: .5em;
+    
 }
 
-.navbar ul li:hover {
-    background: #eee;
+.nav>li>a:focus, .navbar-nav>li>a:hover {
+    background: #74CB78;
+    color: white;
 }
 
 .new-form {
@@ -140,18 +167,22 @@ header p {
 
 /* POTATOES PAGE STYLES */
 .filter-options {
-    margin: 0 0 20px 0;
-    background: #F8F8F8;
+    background: url('https://corybuckley.files.wordpress.com/2011/04/burlap.jpg');
+    background-size: contain;
+    color: white;
+    font-family: 'Amatic SC';
     padding: 20px 10px;
     display: block;
+    border: 3px solid #8a6d3b;
+    border-radius: .5em;
 }
 
-.filter-options h2 {
-    font-family: 'Francois One';
-    text-transform: uppercase;
-    font-size: 2rem;
-    margin: 0;
+.filter-options .title {
+    font-family: 'Amatic SC';
+    font-size: 6rem;
+    font-weight: 600;
     padding: 0;
+    display: inline;
 }
 
 .filter-options ul {
@@ -164,12 +195,14 @@ header p {
     margin: 0 8px 5px 0;
     padding: 8px 10px;
     border: 1px solid #777;
-    font-size: 1.2rem;
+    font-size: 2rem;
+    font-weight: 700;
+    background-color: #74CB78;
     transition: all 0.4s ease;
 }
 
 .filter-options ul li:hover {
-    background: #999;
+    background: #8a6d3b;
     cursor: pointer;
 }
 
@@ -178,32 +211,58 @@ header p {
     color: #eee;
 }
 
+.thumbnail {
+    background: url('https://corybuckley.files.wordpress.com/2011/04/burlap.jpg');
+    border: 3px solid #8a6d3b;
+    border-radius: 4px;
+    background-size: cover;
+    color: white;
+}
+a.thumbnail:hover {
+    border-color: #8A6D3B;
+}
+
+.thumbnail .caption {
+    color: white;
+    font-family: 'Amatic SC';
+    font-weight: 700;
+    font-size: 3rem;
+    text-align:center;
+}
+
+.rating {
+    text-align:center;
+}
 
 .potatoes-listing {
     margin: 40px auto 0 auto;
 }
 
 .potato-image {
+    max-height: 50vh;
+    border: 3px solid #8a6d3b;
+    border-radius: .5em;
     height: 150px;
     overflow: hidden;
 }
 
 .potatoes-listing img {
     width: 100%;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     overflow: hidden;
+    margin: 0 auto;
 }
 
 .potato-gallery-potato {
     margin: 0 0 15px 0;
 }
 
-.potato-gallery-potato h3 {
-    font-size: 2rem;
-}
-
 .potato-gallery-potato span {
-    font-size: 1rem;
-    color: #888;
+    font-size: 2rem;
+    color: white;
 }
 
 .potato-gallery-potato span:nth-child(2) {
@@ -218,11 +277,22 @@ header p {
 ==========================================================================
 ======================================================================= */
 footer {
-    background: #F8F8F8;
-    margin: 100px 0 0 0;
+    background: #8a6d3b;
+    background-size: cover;
+    color: white;
     display: block;
-    border-top: 1px solid #E7E7E7;
-    padding: 50px;
+    border-top: 3px solid #fcf8e3;
+    padding: 10px;
+    font-family: "Amatic SC";
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+footer {
+    color: white;
+    font-family: "Amatic SC";
+    font-size: 2rem;
+    font-weight: 700;
 }
 
 .footer-nav {
@@ -237,12 +307,18 @@ footer {
 .footer-nav ul li {
     display: inline;
     margin: 0 10px;
+    background: #8A6D3B;
+    padding: .2em;
+    border-radius: .2em;
 }
 
 .copyright {
   display: block;
   text-align: center;
   margin: 10px auto 0px auto;
+  background: #8A6D3B;
+    padding: .2em;
+    border-radius: .2em;
 }
 
 
