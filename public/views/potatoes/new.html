@@ -1,4 +1,55 @@
-<div class="container">
+<div class="container potato-container">
+     <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10" id="add-content">
+            <div class="thumbnail">
+                <h1 class="text-center">Add Your Potato</h1>
+                <h1 class="text-center"><small>See <em>your name</em> on a potato!</small></h1>
+                <div class="container" id="new-potato">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="image-preview">
+                                <div ng-hide="potato.image" class="preview" id="preview-text">Image<br>Preview</div>
+                                <img class="preview" ng-if="potato.image" ng-src={{potato.image}} alt="Image Preview">  
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-8">
+                            <div class="new-form">
+                                <form ng-submit="newPotato()" class="clearfix">
+                                    <div class="form-group">
+                                        <label for="name">Potato Name</label>
+                                        <input placeholder="Potato Name" ng-model="potato.name" id="name" class="form-control"/>
+                                      </div>
+                                      <div class="form-group">
+                                        <label for="image">Potato Image</label>
+                                        <input placeholder="Potato Image URL" ng-model="potato.image" id="image" class="form-control"/>
+                                      </div>
+                                      <button type="submit" class="btn btn-default pull-right">Submit</button>
+                                </form>
+                            </div><!--form-->
+                        </div><!--form column-->
+                    </div><!--Row-->
+                </div><!--container-->
+                
+
+            </div>  <!--Thumbnail-->
+        </div> <!--center column-->
+    </div> <!--Row-->
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <!--------------------------------------------------------------------
     <div class="jumbotron text-center">
         <h1>Add your potatoes</h1>
     </div>
@@ -21,5 +72,5 @@
                   <button type="submit" class="btn btn-default">Submit</button>
             </form>
         </div>
-    </div>
+    </div>-->
 </div>
