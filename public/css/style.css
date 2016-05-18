@@ -23,7 +23,8 @@ a:hover {
 }
 
 .new-form {
-    margin: 30px;
+    width: 30%;
+    margin: 30px auto;
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -40,6 +41,13 @@ a:hover {
     margin-top: -12px;
 }
 
+
+
+
+
+/* SPLASH STYLES
+==========================================================================
+======================================================================= */
 .splash {
     margin: 0;
     padding: 0;
@@ -49,6 +57,7 @@ a:hover {
     background-position: center top;
     background-size: cover;
     position: fixed;
+    z-index: 999;
 }
 
 .splash .content-hold {
@@ -166,12 +175,12 @@ header p {
 
 .filter-options-selected {
     background: #333 !important;
-    color: #eee; 
+    color: #eee;
 }
 
 
 .potatoes-listing {
-    margin: 40px auto 0 auto;  
+    margin: 40px auto 0 auto;
 }
 
 .potato-image {
@@ -205,15 +214,15 @@ header p {
 
 
 
-
-/* FOOTER STYLES */
+/* FOOTER STYLES
+==========================================================================
+======================================================================= */
 footer {
     background: #F8F8F8;
     margin: 100px 0 0 0;
-    height: 250px;
     display: block;
     border-top: 1px solid #E7E7E7;
-    padding: 50px 0 0 0;
+    padding: 50px;
 }
 
 .footer-nav {
@@ -230,45 +239,55 @@ footer {
     margin: 0 10px;
 }
 
+.copyright {
+  display: block;
+  text-align: center;
+  margin: 10px auto 0px auto;
+}
+
 
 
 @media (max-width: 768px) {
       .splash .content-hold h1 {
         font-size: 5em;
       }
-  
+
       .splash .content-hold .button-hold a {
         margin: 3px 0;
       }
-  
+
     .potato-gallery-potato h3 {
         font-size: 1.5rem;
         min-height: 50px;
     }
 }
 
+.image-preview {
+    float: right;
+}
+.preview {
+     max-width: 300px;
+     max-height: 300px;
+ }
 
- 
  .potato-image {
      max-height: 50vh;
  }
- 
+
  .potato-container {
-     margin-top: 30px;
+     margin-top: 10px;
  }
- 
- .new
  .review {
     border-radius: .5em;
     padding: .5em;
 }
- 
+
  .odd-review {
      background-color: #DDD;
  }
 
 .edit-form {
-    max-width: 600px; 
+    max-width: 600px;
     left: 50%;
     position: relative;
     transform: translateX(-50%);
@@ -277,31 +296,16 @@ footer {
     margin-top: 10px;
     border-radius: .5em;
 }
-
 .image-preview {
-    position: relative;
-    height: 180px;
-    max-width: 100%;
-    margin: 30px;
-
-}
-
-.preview {
-    position: absolute;
-     max-width: 100%;
-     max-height: 180px;
-     margin:  0 auto;
-     top: 50%;
-     left: 50%;
-     transform: translate(-50%,-50%);
- }
- 
-#preview-text {
-    text-align: center;
-    color: #ccc;
+    height: 150px;
     width: 100%;
 }
 
+.image-preview img {
+    height: 100%;
+    display: block;
+    margin: .5em auto;
+}
 
 hr {
     width: 90%;    
@@ -316,7 +320,6 @@ hr {
     margin: 0 7px;
 }
  
-<<<<<<< HEAD
 #login-modal {
     position: fixed;
     height: 100%;
@@ -324,9 +327,3 @@ hr {
     background-color: #000;
     background-color: rgba(0,0,0,.75);
 }
-
-=======
-#new-potato {
-    width: 100%;
-}
->>>>>>> 81ec55ca2604d71616c7a04d7e877050dec42bfc
