@@ -1,18 +1,27 @@
-angular.module("potatoApp").controller("LoginController", function($scope, $http, $location) {
-    $scope.user = {};
+angular.module("potatoApp").controller("LoginController", function($scope, $http, $location, authService) {
+    $scope.user = {}; // set blank user object linked to login form
     
-    $scope.userLogin = function(){
-        //Drew: how does $scope.user get its .username (from mainctrl?) if {} is assigned above?
-        console.log("login running: " + $scope.user.username);
-        $http.post("/login", $scope.user)
-            .then(function(res){
-                if(res.data.username){
-                    //$scope.currentUser.username = $scope.user.username;
-                    $location.path("/profile");
-                } else {
-                    $scope.error = res.data.message;
-                    $scope.user = {};
+    $scope.loginModal = false; // Hide login modal
+    // When login is required show login modal
+    $scope.$on('auth-loginRequired', function(event, data){
+        $scope.loginModal = true;
+    });
+    // When login is confirmed hide login modal
+    $scope.$on('event:auth-loginConfirmed', function(event, data){
+        $scope.loginModal = false;
+    });
+    
+    // function attached to login button
+    $scope.userLogin = function(){ 
+        $http.post("/login", $scope.user) // Send login request with user data
+            .then(function(res){    // wait for response
+                if(res.data.username){ // If login succesful
+                    authService.loginConfirmed(res.data); // prompt login success event
+                    $location.path("/profile"); // redirect to User porfile page
+                } else {  // if login unsuccessful
+                    $scope.error = res.data.message; // set error for future logging
+                    $scope.user = {};   // reset user object to blank
                 }
             });
-    }
+    };
 });

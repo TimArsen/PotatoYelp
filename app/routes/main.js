@@ -1,17 +1,74 @@
+// grab the nerd model we just created
 var Potato      = require('./models/potato');
 var User        = require('./models/user');
-var Review      = require('./models/review');
+var Review        = require('./models/review');
 var passport    = require('passport');
-var potatoRoutes= require("./routes/potatoRoutes");
-//var reviewRoutes= require("./routes/reviewRoutes");
 var middleware  = require("./middleware/middleware");
 
-module.exports = function(app) {
+    module.exports = function(app) {
 
-// Potato API Routes
-app.use("/api/potatoes", potatoRoutes);
-    
-// Review API Routes
+    //                           Server routes 
+    //==========================================================================
+        
+    // Potato API Routes =======================================================
+        
+        // Index route
+        app.get('/api/potatoes', function(req, res) {
+            // use mongoose to get all reviews in the database
+            Potato.find(function(err, reviews) {
+                // Handle errors
+                if (err){
+                    console.log(err);
+                }
+                res.json(reviews); // return all reviews in JSON format
+            });
+        });
+
+        // Create route
+        app.post('/api/potatoes', middleware.isLoggedIn, function(req, res){
+            var potato = req.body;
+            potato.author = { id: req.user._id, username: req.user.username};
+            Potato.create(potato, function(err, newPotato){
+                // Handle errors
+                if (err)
+                    res.send(err);
+                    
+                res.json(newPotato); // return new potato in JSON format
+            });
+        });
+        
+        // Show Route
+        app.get('/api/potatoes/:id', function(req, res){
+            Potato.findById(req.params.id).populate("reviews").exec(function(err, potato){
+                if(err) {
+                    console.log(err);
+                } else {
+                    res.json(potato);
+                }// return potato in JSON format
+            });
+        });
+        
+        // Update route
+        app.put('/api/potatoes/:id', middleware.checkPotatoOwnership, function(req, res){
+           Potato.findByIdAndUpdate(req.params.id, req.body, function(err, newPotato){
+                if (err) {
+                    console.log(err);
+                } else {
+                    res.json(newPotato);
+                }
+            });
+        });
+        
+        // Delete Route
+        app.delete('/api/potatoes/:id', middleware.checkPotatoOwnership, function(req, res){
+            Potato.findByIdAndRemove(req.params.id, function(err){
+                if(err){
+                    console.log(err);
+                }
+            });
+        });
+        
+    //Review API Routes ==========================================================
 
         // Create Review route
         app.post('/api/reviews', middleware.isLoggedIn, function(req, res){
@@ -66,7 +123,7 @@ app.use("/api/potatoes", potatoRoutes);
         });
         
         // Delete Route
-        app.delete('/api/reviews/:id', middleware.checkReviewOwnership, function(req, res){
+        app.delete('/api/potatoes/:potato_id/reviews/:id', middleware.checkReviewOwnership, function(req, res){
             Review.findByIdAndRemove(req.params.id, function(err){
                 if(err){
                     console.log(err);
@@ -161,8 +218,8 @@ app.use("/api/potatoes", potatoRoutes);
         
         // Logout
         app.get("/logout", function(req, res){
-            req.logout();
-            res.redirect("/potatoes");
+           req.logout();
+           // req.flash("success", "Logged you out!");
         });
 
         // frontend routes =========================================================

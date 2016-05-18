@@ -18,6 +18,7 @@
         <script src="./libs/angular/angular.min.js"></script>
         <script src="./libs/angular-route/angular-route.min.js"></script>
         <script src="./libs/angular-resource/angular-resource.min.js"></script>
+        <script src="./libs/angular-http-auth/src/http-auth-interceptor.js"></script>
 
         <!-- ANGULAR CUSTOM -->
         <script src="./js/app.js"></script>
@@ -59,15 +60,15 @@
                 <!-- LINK TO OUR PAGES. ANGULAR HANDLES THE ROUTING HERE -->
 
                 <!-- If no user signed in -->
-                <ul class="nav navbar-nav pull-right" ng-if="!currentUser.username">
+                <ul class="nav navbar-nav pull-right" ng-if="!currentUser">
                     <li><a href="/register">Register</a></li>
                     <li><a href="/login">Sign In</a></li>
                 </ul>
 
                 <!-- If user is signed in -->
-                <ul class="nav navbar-nav pull-right" ng-if="currentUser.username">
+                <ul class="nav navbar-nav pull-right" ng-if="currentUser">
                     <li><a href="" ng-click="userLogout()">Log Out</a></li>
-                    <li><a href="/profile">{{currentUser.username}}</a></li>
+                    <li><a href="/profile">{{currentUser}}</a></li>
                 </ul>
 
                 <ul class="nav navbar-nav pull-right">
@@ -82,8 +83,12 @@
         <footer>
             <nav class='footer-nav'>
                 <ul>
-                    <li><a href="/login">Sign In</a></li>
-                    <li><a href="/register">Register</a></li>
+                    <!-- If no surrent User-->
+                    <li ng-if="!currentUser"><a href="/login">Sign In</a></li>
+                    <li ng-if="!currentUser"><a href="/register">Register</a></li>
+                    <!-- If current User-->
+                    <li ng-if="currentUser"><a href="" ng-click="userLogout()">Log Out</a></li>
+                    <li ng-if="currentUser"><a href="/profile">{{currentUser}}</a></li>
                     <li><a href="/potatoes">Potatoes</a></li>
                     <li><a href="/potatoes/new">Add Potato</a></li>
                 </ul>
@@ -91,6 +96,6 @@
 
             <small class="copyright">Hawt Potato | &copy; Copyright 2016</small>
         </footer>
-
+        <section id="login-modal" ng-app="potatoApp" ng-controller="LoginController" ng-hide="loginModal">
     </body>
 </html>

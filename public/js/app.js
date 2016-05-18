@@ -1,1 +1,1 @@
-angular.module('potatoApp', ['ngRoute', 'ngResource']);
+angular.module('potatoApp', ['ngRoute', 'ngResource', 'http-auth-interceptor']);
