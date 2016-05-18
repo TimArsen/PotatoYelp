@@ -1,21 +1,17 @@
-angular.module('potatoApp').controller('MainController', function($scope, $timeout, $http, $routeParams) {
-
-    $scope.currentUser = {};
-
-     $http.get("/api/users/current")
-        .then(function(res){
-                $scope.currentUser = res.data;
-        });
+angular.module('potatoApp').controller('MainController', function($scope, $rootScope, $http, $location, authService) {
     
-    //$scope.currentUser = {};
-    //$scope.currentUser.username = "";
-    //console.log($scope.currentUser.username);
+    // Listen for login event
+    $scope.$on('event:auth-loginConfirmed', function(event, data){
+        $rootScope.isLoggedin = true;
+        $scope.currentUser = data.username;
+    });
     
-    // Logout
+    // Logout function
     $scope.userLogout = function() {
-        console.log("Logging you out!");
-        $http.get("/logout");
-        //$scope.currentUser = {};
-    }
-
+        $http.get("/logout").then(function(res){
+            $rootScope.isLoggedin = false;
+            $scope.currentUser = false;
+            $location.path("/potatoes");
+        });
+    };
 });
