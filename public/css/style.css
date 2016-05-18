@@ -275,7 +275,6 @@ a.thumbnail:hover {
 ==========================================================================
 ======================================================================= */
 footer {
-    position: fixed;
     background: #8a6d3b;
     background-size: cover;
     color: white;
@@ -285,9 +284,6 @@ footer {
     font-family: "Amatic SC";
     font-size: 2rem;
     font-weight: 700;
-    width: 100%;
-    bottom: 0px;
-
 }
 
 
