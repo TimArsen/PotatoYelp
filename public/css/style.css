@@ -49,8 +49,11 @@ a:hover {
 }
 
 .new-form {
-    margin: 30px;
+    margin: 15px;
+    padding: 15px;
     font-family: 'Open Sans', sans-serif;
+    background-color: rgba(200,200,200,.4);
+    border-radius: 4px;
 }
 
 .container img {
@@ -209,6 +212,7 @@ header p {
     color: #eee;
 }
 
+
 .thumbnail {
     background: url('https://corybuckley.files.wordpress.com/2011/04/burlap.jpg');
     border: 3px solid #8a6d3b;
@@ -330,6 +334,18 @@ footer {
     }
 }
 
+/*VIEW STYLES*/
+
+.view-title {
+    margin: 0;
+    padding: 0;
+    font-family: 'Amatic SC', cursive;
+    font-size: 6em;
+    color: #fff;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
  .potato-image {
      max-height: 50vh;
  }
@@ -373,12 +389,15 @@ footer {
      transform: translate(-50%,-50%);
  }
  
- #preview-text {
+#preview-text {
     text-align: center;
-    color: #ccc;
-    width: 100%;
- }
-
+    color: white;
+    width: 160px;
+    padding: 70px 0;
+    font-family: 'Open Sans', sans-serif;
+    background-color: rgba(200,200,200,.4);
+    border-radius: 4px;
+}
 
 hr {
     width: 90%;    
