@@ -345,9 +345,20 @@ footer {
       }
 
     .potato-gallery-potato h3 {
-        font-size: 1.5rem;
         min-height: 50px;
+        font-size: 3.5rem;
     }
+    
+}
+
+@media (max-width: 480px) {
+    .potato-gallery-potato {
+            max-width: 360px;
+            margin: 0 auto;
+            display:block;
+            float:none;
+            width: 100%
+        }
 }
 
 /*VIEW STYLES*/
