@@ -1,26 +1,42 @@
-<div class="container">
-    
-    <div class="jumbotron text-center">
-        <h1>Update User Profile</h1>
-    </div>
-    
-    <div class="edit-form">
-        <form ng-submit="updateProfile()">
-            <div class="form-group">
-                <label for="username">Update Username</label>
-                <input placeholder="Enter New Username" ng-model="currentUser.username" id="name" class="form-control"/>
-            </div>
-            <div class="form-group">
-                <label for="password">Update Password</label>
-                <input placeholder="Enter New Password" ng-model="currentUser.password" id="password" class="form-control"/>
-            </div>
-            <div class="form-group">
-                <label for="avatarUrl">Update Profile Picture</label>
-                <input placeholder="Enter Image URL" ng-model="currentUser.avatarUrl" id="image" class="form-control"/>
-            </div>
-            <button type="submit" class="btn btn-default">Submit</button>
-        </form>
-        <img ng-src="{{ currentUser.avatarUrl }}">
-    </div>
-    
+<div class="container potato-container">
+     <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <div class="thumbnail">
+                <h1 class="text-center view-title">Update User Profile</h1>
+                <div class="container" id="new-potato">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="image-preview">
+                                <div ng-hide="currentUser.avatarUrl" class="preview" id="preview-text">Profile<br>Picture</div>
+                                <img class="preview" ng-if="currentUser.avatarUrl" ng-src={{currentUser.avatarUrl}} alt="Profile Picture">  
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-8">
+                            <div class="new-form">
+                                <form ng-submit="updateProfile()" class="clearfix">
+                                    <div class="form-group">
+                                        <label for="username">Update Username</label>
+                                            <input placeholder="Enter New Username" ng-model="currentUser.username" id="name" class="form-control"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="password">Update Password</label>
+                                            <input placeholder="Enter New Password" ng-model="currentUser.password" id="password" class="form-control"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="avatarUrl">Update Profile Picture</label>
+                                            <input placeholder="Enter Image URL" ng-model="currentUser.avatarUrl" id="image" class="form-control"/>
+                                        </div>
+                                        <button type="submit" class="btn btn-default pull-right">Save</button>
+                                </form>
+                            </div><!--form-->
+                        </div><!--form column-->
+                    </div><!--Row-->
+                </div><!--container-->
+                
+
+            </div>  <!--Thumbnail-->
+        </div> <!--center column-->
+    </div> <!--Row-->
 </div>
