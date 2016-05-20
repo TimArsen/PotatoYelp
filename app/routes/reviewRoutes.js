@@ -56,7 +56,6 @@ router.put('/:id',
                 function(err, review){
                     //  Handle errors
                     if(err){res.send(err)}
-                    console.log(review.potato.id);
                     updatePotatoRatings(review.potato.id); // Update Potato ratings
                     // return updated review in JSON format
                     res.json(review);
@@ -102,8 +101,6 @@ var updatePotatoRatings = function(potatoId){
                         // set num of ratings
                         potato.num_of_reviews = potato.reviews.length;
                         // set average rating (total_ratings / num of reviews)
-                        console.log(total_rating);
-                        console.log(potato.num_of_reviews);
                         potato.average_rating = (total_rating/potato.num_of_reviews).toFixed(1);
                         // save Potato
                         potato.save();
