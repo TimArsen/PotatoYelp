@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+    
     <head>
         <meta charset="UTF-8">
         <base href="/">
@@ -43,59 +44,62 @@
         <script src="./js/services/ReviewResource.js"></script>
         <!-- Routes -->
         <script src="./js/appRoutes.js"></script>
+        
+
     </head>
     <body ng-app="potatoApp" ng-controller="MainController">
 
+        <div id="wrapper"><!--this wrapper is necessary for correctly positioning the footer, since <body> makes an awkward parent-->    
+            <!-- HEADER -->
+            <nav class="navbar">
+                <div class="container">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="/"><img
+                        src="http://findicons.com/files/icons/1187/pickin_time/128/potato.png"
+                        id="logo">
+                        Hawt Potato!</a>
+                    </div>
+    
+                    <!-- LINK TO OUR PAGES. ANGULAR HANDLES THE ROUTING HERE -->
 
-        <!-- HEADER -->
-        <nav class="navbar">
-            <div class="container">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="/"><img
-                    src="http://findicons.com/files/icons/1187/pickin_time/128/potato.png"
-                    id="logo">
-                    Hawt Potato!</a>
+                    <!-- If no user signed in -->
+                    <ul class="nav navbar-nav pull-right" ng-if="!currentUser">
+                        <li><a href="/register">Register</a></li>
+                        <li><a href="/login">Sign In</a></li>
+                    </ul>
+    
+                    <!-- If user is signed in -->
+                    <ul class="nav navbar-nav pull-right" ng-if="currentUser">
+                        <li><a href="" ng-click="userLogout()">Log Out</a></li>
+                        <li><a href="/profile">{{currentUser.username}}</a></li>
+                    </ul>
+    
+                    <ul class="nav navbar-nav pull-right">
+                        <li><a href="/potatoes">Potatoes</a></li>
+                        <li><a href="/potatoes/new">Add Potato</a></li>
+                    </ul>
                 </div>
-
-                <!-- LINK TO OUR PAGES. ANGULAR HANDLES THE ROUTING HERE -->
-
-                <!-- If no user signed in -->
-                <ul class="nav navbar-nav pull-right" ng-if="!currentUser">
-                    <li><a href="/register">Register</a></li>
-                    <li><a href="/login">Sign In</a></li>
-                </ul>
-
-                <!-- If user is signed in -->
-                <ul class="nav navbar-nav pull-right" ng-if="currentUser">
-                    <li><a href="" ng-click="userLogout()">Log Out</a></li>
-                    <li><a href="/profile">{{currentUser.username}}</a></li>
-                </ul>
-
-                <ul class="nav navbar-nav pull-right">
-                    <li><a href="/potatoes">Potatoes</a></li>
-                    <li><a href="/potatoes/new">Add Potato</a></li>
-                </ul>
-            </div>
-        </nav>
-        <!-- ANGULAR DYNAMIC CONTENT -->
-        <div ng-view></div>
-
-        <footer>
-            <nav class='footer-nav'>
-                <ul>
-                    <!-- If no surrent User-->
-                    <li ng-if="!currentUser"><a href="/login">Sign In</a></li>
-                    <li ng-if="!currentUser"><a href="/register">Register</a></li>
-                    <!-- If current User-->
-                    <li ng-if="currentUser"><a href="" ng-click="userLogout()">Log Out</a></li>
-                    <li ng-if="currentUser"><a href="/profile">{{currentUser.username}}</a></li>
-                    <li><a href="/potatoes">Potatoes</a></li>
-                    <li><a href="/potatoes/new">Add Potato</a></li>
-                </ul>
             </nav>
-
-            <small class="copyright">Hawt Potato | &copy; Copyright 2016</small>
-        </footer>
-        <section id="login-modal" ng-app="potatoApp" ng-controller="LoginController" ng-hide="loginModal">
+            <!-- ANGULAR DYNAMIC CONTENT -->
+            <div ng-view></div>
+    
+            <footer>
+                <nav class='footer-nav'>
+                    <ul>
+                        <!-- If no surrent User-->
+                        <li ng-if="!currentUser"><a href="/login">Sign In</a></li>
+                        <li ng-if="!currentUser"><a href="/register">Register</a></li>
+                        <!-- If current User-->
+                        <li ng-if="currentUser"><a href="" ng-click="userLogout()">Log Out</a></li>
+                        <li ng-if="currentUser"><a href="/profile">{{currentUser.username}}</a></li>
+                        <li><a href="/potatoes">Potatoes</a></li>
+                        <li><a href="/potatoes/new">Add Potato</a></li>
+                    </ul>
+                </nav>
+    
+                <small class="copyright">Hawt Potato | &copy; Copyright 2016</small>
+            </footer>
+            <section id="login-modal" ng-app="potatoApp" ng-controller="LoginController" ng-hide="loginModal">
+        </div><!--wrapper-->
     </body>
 </html>

@@ -2,6 +2,18 @@ body {
     background-color: #74CB78;
 }
 
+html,
+body {
+    /*this is necessary for correctly positioning the footer */
+	margin:0;
+	padding:0;
+	height:100%;
+}
+
+#login-modal {
+    display: none;
+}
+
 a {
     color: inherit;
 }
@@ -48,11 +60,7 @@ a:hover {
     color: white;
 }
 
-.new-form {
-    width: 30%;
-    margin: 30px auto;
-    font-family: 'Open Sans', sans-serif;
-}
+
 
 .container img {
     clear: both;
@@ -210,6 +218,7 @@ header p {
     color: #eee;
 }
 
+
 .thumbnail {
     background: url('https://corybuckley.files.wordpress.com/2011/04/burlap.jpg');
     border: 3px solid #8a6d3b;
@@ -275,7 +284,16 @@ a.thumbnail:hover {
 /* FOOTER STYLES
 ==========================================================================
 ======================================================================= */
+#wrapper {
+    min-height: 100%;
+	position: relative;
+}
+
 footer {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
     background: #8a6d3b;
     background-size: cover;
     color: white;
@@ -287,12 +305,6 @@ footer {
     font-weight: 700;
 }
 
-footer {
-    color: white;
-    font-family: "Amatic SC";
-    font-size: 2rem;
-    font-weight: 700;
-}
 
 .footer-nav {
     text-align: center;
@@ -309,6 +321,7 @@ footer {
     background: #8A6D3B;
     padding: .2em;
     border-radius: .2em;
+    white-space: nowrap;
 }
 
 .copyright {
@@ -332,25 +345,48 @@ footer {
       }
 
     .potato-gallery-potato h3 {
-        font-size: 1.5rem;
         min-height: 50px;
+        font-size: 3.5rem;
     }
+    
 }
 
-.image-preview {
-    float: right;
+@media (max-width: 480px) {
+    .potato-gallery-potato {
+            max-width: 360px;
+            margin: 0 auto;
+            display:block;
+            float:none;
+            width: 100%
+        }
 }
-.preview {
-     max-width: 300px;
-     max-height: 300px;
- }
+
+/*VIEW STYLES*/
+
+.new-form, .edit-form {
+    margin: 15px;
+    padding: 15px;
+    font-family: 'Open Sans', sans-serif;
+    background-color: rgba(200,200,200,.4);
+    border-radius: 4px;
+}
+
+.view-title {
+    margin: 0;
+    padding: 0;
+    font-family: 'Amatic SC', cursive;
+    font-size: 6em;
+    color: #fff;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
 
  .potato-image {
      max-height: 50vh;
  }
 
  .potato-container {
-     margin-top: 10px;
+     margin-top: 30px;
  }
  .review {
     border-radius: .5em;
@@ -358,9 +394,10 @@ footer {
 }
 
  .odd-review {
-     background-color: #DDD;
+     background-color: rgba(200,200,200,.4);
  }
 
+/*
 .edit-form {
     max-width: 600px;
     left: 50%;
@@ -371,15 +408,32 @@ footer {
     margin-top: 10px;
     border-radius: .5em;
 }
+*/
 .image-preview {
-    height: 150px;
-    width: 100%;
+    position: relative;
+    height: 180px;
+    max-width: 100%;
+    margin: 30px;
 }
 
-.image-preview img {
-    height: 100%;
-    display: block;
-    margin: .5em auto;
+.preview {
+    position: absolute;
+     max-width: 100%;
+     max-height: 180px;
+     margin:  0 auto;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%,-50%);
+ }
+ 
+#preview-text {
+    text-align: center;
+    color: white;
+    width: 160px;
+    padding: 70px 0;
+    font-family: 'Open Sans', sans-serif;
+    background-color: rgba(200,200,200,.4);
+    border-radius: 4px;
 }
 
 hr {
@@ -401,4 +455,8 @@ hr {
     width: 100%;
     background-color: #000;
     background-color: rgba(0,0,0,.75);
+}
+
+#new-potato, #edit-potato {
+    width: 100%;
 }
