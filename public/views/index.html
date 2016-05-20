@@ -99,7 +99,25 @@
     
                 <small class="copyright">Hawt Potato | &copy; Copyright 2016</small>
             </footer>
-            <section id="login-modal" ng-app="potatoApp" ng-controller="LoginController" ng-hide="loginModal">
+            <section id="login-modal" ng-app="potatoApp" ng-controller="LoginController" ng-show="loginModal">
+                <div class="login-form">
+                    <h1 class="text-center view-title">Login</h1>
+                    <div class="form">
+                        <form ng-submit="userLogin()" class="clearfix">
+                            <div class="form-group">
+                                <label for="username">Username:</label>
+                                <input placeholder="Enter your username" ng-model="user.username" id="username" class="form-control"/>
+                              </div>
+                              <div class="form-group">
+                                <label for="password">Password:</label>
+                                <input placeholder="Enter your password" type="password" ng-model="user.password" id="password" class="form-control"/>
+                              </div>
+                              <button type="submit" class="form-button pull-right">Login</button>
+                              {{ error }}
+                        </form>
+                    </div><!--form-->
+                </div>  <!--Login Form-->
+            </section>
         </div><!--wrapper-->
     </body>
 </html>
