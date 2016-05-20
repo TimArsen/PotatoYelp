@@ -56,6 +56,7 @@ router.put('/:id',
                 function(err, review){
                     //  Handle errors
                     if(err){res.send(err)}
+                    console.log(review.potato.id);
                     updatePotatoRatings(review.potato.id); // Update Potato ratings
                     // return updated review in JSON format
                     res.json(review);

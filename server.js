@@ -42,7 +42,7 @@ app.use(function(req, res, next){
 });
 
 // routes ==================================================
-require('./app/routes')(app); // configure our routes
+require('./app/routes/routes')(app); // configure our routes
 
 // start app ===============================================
 // startup our app at http://localhost:8080
