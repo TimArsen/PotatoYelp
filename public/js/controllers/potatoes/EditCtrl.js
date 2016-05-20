@@ -1,19 +1,16 @@
-angular.module('potatoApp').controller('EditController', function($scope, PotatoResource, $routeParams, $location, $http) {
-    $scope.currentUser = {};
-    
-    $http.get("/api/users/current")
-        .then(function(res){
-            console.log(res.data);
-            $scope.currentUser = res.data;
-        });
-
-    $scope.potato = PotatoResource.get({id: $routeParams.id});
-    
-    $scope.updatePotato = function(){
-        console.log("updating potato")
-        $scope.potato.$update(function(){
-            $location.path("/potatoes/" + $scope.potato._id);
-        });
-    };
+angular.module('potatoApp')
+    .controller('EditController', 
+        function($scope, PotatoResource, $routeParams, $location, $http) {
+            // Find Potato for editing
+            $scope.potato = PotatoResource.get({id: $routeParams.id});
+            
+            // Update Potato function
+            $scope.updatePotato = function(){
+                // Update Potato
+                $scope.potato.$update(function(){
+                    // Reroute to Potato Show page
+                    $location.path("/potatoes/" + $scope.potato._id);
+                });
+            };
 
 });
