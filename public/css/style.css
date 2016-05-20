@@ -391,6 +391,37 @@ footer {
  .odd-review {
      background-color: rgba(200,200,200,.4);
  }
+ 
+ .review-input {
+     padding: 20px;
+     margin-top: 20px;
+ }
+ 
+ .rate-label {
+     display:block;
+ }
+ 
+ #collapsible-review-input {
+     overflow:hidden;
+     max-height: 300px;
+     transition: max-height 0.4s ease;
+     -webkit-transition: max-height 0.4s ease;
+     -moz-transition: max-height 0.4s ease;
+     
+ }
+ 
+ .collapsed {
+    max-height: 0px !important;
+}
+
+ textarea {
+     resize: vertical;
+ }
+ 
+ #cancel-review {
+     margin: 0 4px;
+ }
+
 
 /*
 .edit-form {
@@ -498,6 +529,7 @@ hr {
 }
 
 
+
 /* Styles for 5-potato review rating input*/
 
 .hidden {
@@ -506,6 +538,7 @@ hr {
 
 #tray {
   display: inline-block;
+  vertical-align: -80%;
 }
 
 .potato-rater {    
@@ -573,6 +606,8 @@ hr {
 
 .rating-string {
   display: none;
+  font-size: 3rem;
+  white-space: nowrap;
 }
 
 #radio-1:checked ~ .rotten {

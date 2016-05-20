@@ -20,4 +20,14 @@ angular.module('potatoApp').controller('ShowController', function($scope, Potato
             });
         
     };
+    
+    //open review input on review btn click
+    $('#review-btn').click(function(){
+        $('#collapsible-review-input').removeClass('collapsed');
+    });
+    
+    //close review input on cancel btn click
+    $('#cancel-review').click(function(){
+        $('#collapsible-review-input').addClass('collapsed');
+    });
 });
