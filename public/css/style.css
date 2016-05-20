@@ -2,6 +2,18 @@ body {
     background-color: #74CB78;
 }
 
+html,
+body {
+    /*this is necessary for correctly positioning the footer */
+	margin:0;
+	padding:0;
+	height:100%;
+}
+
+#login-modal {
+    display: none;
+}
+
 a {
     color: inherit;
 }
@@ -272,7 +284,16 @@ a.thumbnail:hover {
 /* FOOTER STYLES
 ==========================================================================
 ======================================================================= */
+#wrapper {
+    min-height: 100%;
+	position: relative;
+}
+
 footer {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
     background: #8a6d3b;
     background-size: cover;
     color: white;
@@ -300,6 +321,7 @@ footer {
     background: #8A6D3B;
     padding: .2em;
     border-radius: .2em;
+    white-space: nowrap;
 }
 
 .copyright {
@@ -413,7 +435,7 @@ hr {
 }
 
 #review-btn {
-    margin: 0 node7px;
+    margin: 0 7px;
 }
  
 #login-modal {
