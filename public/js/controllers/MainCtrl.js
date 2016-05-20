@@ -1,4 +1,6 @@
-angular.module('potatoApp').controller('MainController', function($scope, $rootScope, $http, $location, authService) {
+angular.module('potatoApp')
+    .controller('MainController', 
+        function($scope, $rootScope, $http, $location, authService) {
     
     // expand #footer-padding to size of footer so footer does not hide content
     $( document ).ready(function() {
@@ -13,11 +15,18 @@ angular.module('potatoApp').controller('MainController', function($scope, $rootS
         
     });
     
+    // Listen for logout event
+    $scope.$on('event:auth-loginCancelled', function(event, data){
+        console.log("Auth Cancelled");
+        $rootScope.isLoggedin = false;
+        $scope.currentUser = false;
+    });
+    
     // Logout function
     $scope.userLogout = function() {
-        $http.get("/logout").then(function(res){
-            $rootScope.isLoggedin = false;
-            $scope.currentUser = false;
+        $http.get("api/auth/logout").then(function(res){
+            console.log("logging Out");
+            authService.loginCancelled();
             $location.path("/potatoes");
         });
     };
