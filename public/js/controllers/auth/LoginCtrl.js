@@ -17,7 +17,7 @@ angular.module("potatoApp").controller("LoginController", function($scope, $http
             .then(function(res){    // wait for response
                 if(res.data.username){ // If login succesful
                     authService.loginConfirmed(res.data); // prompt login success event
-                    $location.path("/profile"); // redirect to User porfile page
+                    $location.path("/potatoes"); // redirect to potato index page
                 } else {  // if login unsuccessful
                     $scope.error = res.data.message; // set error for future logging
                     $scope.user = {};   // reset user object to blank
