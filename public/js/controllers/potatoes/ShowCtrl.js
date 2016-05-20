@@ -23,11 +23,11 @@ angular.module('potatoApp').controller('ShowController', function($scope, Potato
     
     //open review input on review btn click
     $('#review-btn').click(function(){
-        $('#collapsible-review-input').removeClass('collapsed');
+        $('#collapsible-review-input').slideDown(300);
     });
     
     //close review input on cancel btn click
     $('#cancel-review').click(function(){
-        $('#collapsible-review-input').addClass('collapsed');
+       $('#collapsible-review-input').slideUp(300);
     });
 });

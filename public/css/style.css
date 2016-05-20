@@ -404,15 +404,7 @@ footer {
  
  #collapsible-review-input {
      overflow:hidden;
-     max-height: 300px;
-     transition: max-height 0.4s ease;
-     -webkit-transition: max-height 0.4s ease;
-     -moz-transition: max-height 0.4s ease;
-     
- }
- 
- .collapsed {
-    max-height: 0px !important;
+     display:none;
 }
 
  textarea {
