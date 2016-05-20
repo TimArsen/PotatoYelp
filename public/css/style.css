@@ -496,3 +496,122 @@ hr {
 #new-potato, #edit-potato {
     width: 100%;
 }
+
+
+/* Styles for 5-potato review rating input*/
+
+.hidden {
+  display: none;
+}
+
+#tray {
+  display: inline-block;
+}
+
+.potato-rater {    
+    background-repeat: no-repeat;
+    display: inline-block;
+    cursor: pointer;
+    width: 48px;
+    height: 48px;
+    background-position: 0 0;
+    float: right;
+}
+
+#rate-1{
+  background-image: url(http://www.mediafire.com/convkey/964a/1b3adbrht16ddpozg.jpg);
+}
+
+#rate-2{
+  background-image: url(http://www.mediafire.com/convkey/964a/1b3adbrht16ddpozg.jpg);
+}
+
+#rate-3{
+  background-image: url(http://www.mediafire.com/convkey/964a/1b3adbrht16ddpozg.jpg);
+}
+
+#rate-4{
+  background-image: url(http://www.mediafire.com/convkey/964a/1b3adbrht16ddpozg.jpg);
+}
+
+#rate-5 {
+  background-image: url(http://www.mediafire.com/convkey/964a/1b3adbrht16ddpozg.jpg);
+}
+
+#radio-5:checked ~ #tray > #rate-5,
+#radio-5:checked ~ #tray > #rate-4, 
+#radio-5:checked ~ #tray > #rate-3, 
+#radio-5:checked ~ #tray > #rate-2, 
+#radio-5:checked ~ #tray > #rate-1, 
+#radio-4:checked ~ #tray > #rate-4, 
+#radio-4:checked ~ #tray > #rate-3, 
+#radio-4:checked ~ #tray > #rate-2, 
+#radio-4:checked ~ #tray > #rate-1, 
+#radio-3:checked ~ #tray > #rate-3, 
+#radio-3:checked ~ #tray > #rate-2, 
+#radio-3:checked ~ #tray > #rate-1, 
+#radio-2:checked ~ #tray > #rate-2, 
+#radio-2:checked ~ #tray > #rate-1, 
+#radio-1:checked ~ #tray > #rate-1
+{
+  background-position: 0 -48px;
+}
+
+#tray:hover * {
+  background-position: 0 0px !important;
+}
+
+#rate-1:hover, #rate-2:hover, #rate-2:hover ~ #rate-1, #rate-3:hover, #rate-3:hover ~ #rate-2, 
+  #rate-3:hover ~ #rate-1, #rate-4:hover, #rate-4:hover ~ #rate-3, #rate-4:hover ~ #rate-2, #rate-4:hover ~ #rate-1, 
+#rate-5:hover, #rate-5:hover ~ #rate-4,
+  #rate-5:hover ~ #rate-3,     
+  #rate-5:hover ~ #rate-2, 
+  #rate-5:hover ~ #rate-1
+{
+  background-position: 0 -48px !important;
+}
+
+.rating-string {
+  display: none;
+}
+
+#radio-1:checked ~ .rotten {
+  display: inline;
+}
+#radio-2:checked ~ .cannon {
+  display: inline;
+}
+#radio-3:checked ~ .meh {
+  display: inline;
+}
+#radio-4:checked ~ .nice {
+  display: inline;
+}
+#radio-5:checked ~ .hawt {
+  display: inline;
+}
+
+#radio-1:hover ~ .rating-string,
+#radio-2:hover ~ .rating-string,
+#radio-3:hover ~ .rating-string,
+#radio-4:hover ~ .rating-string,
+#radio-5:hover ~ .rating-string
+{
+  display: none;
+}
+
+#radio-1:hover ~ .rotten {
+  display: inline;
+}
+#radio-2:hover ~ .cannon {
+  display: inline;
+}
+#radio-3:hover ~ .meh {
+  display: inline;
+}
+#radio-4:hover ~ .nice {
+  display: inline;
+}
+#radio-5:hover ~ .hawt {
+  display: inline;
+}
