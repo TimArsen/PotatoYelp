@@ -48,13 +48,7 @@ a:hover {
     color: white;
 }
 
-.new-form {
-    margin: 15px;
-    padding: 15px;
-    font-family: 'Open Sans', sans-serif;
-    background-color: rgba(200,200,200,.4);
-    border-radius: 4px;
-}
+
 
 .container img {
     clear: both;
@@ -336,6 +330,14 @@ footer {
 
 /*VIEW STYLES*/
 
+.new-form, .edit-form {
+    margin: 15px;
+    padding: 15px;
+    font-family: 'Open Sans', sans-serif;
+    background-color: rgba(200,200,200,.4);
+    border-radius: 4px;
+}
+
 .view-title {
     margin: 0;
     padding: 0;
@@ -362,6 +364,7 @@ footer {
      background-color: rgba(200,200,200,.4);
  }
 
+/*
 .edit-form {
     max-width: 600px;
     left: 50%;
@@ -372,6 +375,7 @@ footer {
     margin-top: 10px;
     border-radius: .5em;
 }
+*/
 .image-preview {
     position: relative;
     height: 180px;
@@ -420,6 +424,6 @@ hr {
     background-color: rgba(0,0,0,.75);
 }
 
-#new-potato {
+#new-potato, #edit-potato {
     width: 100%;
 }
