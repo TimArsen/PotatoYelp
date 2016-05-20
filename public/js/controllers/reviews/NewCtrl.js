@@ -4,7 +4,6 @@ angular.module('potatoApp').controller('NewReviewController', function($scope, R
     $scope.review.potato = { id: id};
     
     $scope.newReview = function(){
-        console.log($scope.review);
         $scope.review.$save(function(){
             $location.path("/potatoes/");
         });

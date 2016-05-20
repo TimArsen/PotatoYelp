@@ -25,10 +25,10 @@
             </div>  <!--Thumbnail-->
             <div class="well thumbnail">
                 <!--<a class="btn btn-sm btn-success pull-right" id="review-btn" href="/potatoes/reviews/{{potato._id}}">Review</a>-->
-                <button class="btn btn-sm btn-success pull-right" id="review-btn">Review</button>
+                <button class="btn btn-sm btn-success pull-right" id="review-btn" ng-click="collapse()">Review</button>
                 <h3>Reviews for {{potato.name}}</h3>
                 
-                <div id="collapsible-review-input" class="collapsed">
+                <div id="collapsible-review-input" ng-hide="collapsed">
                     <div class="review odd-review review-input clearfix">
                         <form ng-submit="newReview()">
                             <div class="form-group">
@@ -61,7 +61,7 @@
                                 <textarea placeholder="Write your review" ng-model="review.comment" id="comment" class="form-control"/>
                               </div>
                               <button type="submit" class="btn btn-sm pull-right btn-success">Submit</button>
-                              <button class="btn btn-sm pull-right btn-warning" id="cancel-review">Cancel</button>
+                              <button class="btn btn-sm pull-right btn-warning" ng-click="collapse()">Cancel</button>
                         </form>
                         
                     </div>
@@ -70,7 +70,7 @@
                 
                 
                 <hr>
-                <div ng-repeat="review in reviews">
+                <div ng-repeat="review in potato.reviews">
                     <div class="review" ng-class-odd="'odd-review'">
                         <strong>{{ review.author.username }}</strong>
                         <span class="pull-right">10 days ago **ADD DATE HERE**</span>
