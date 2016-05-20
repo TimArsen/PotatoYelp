@@ -68,7 +68,7 @@
                 <!-- If user is signed in -->
                 <ul class="nav navbar-nav pull-right" ng-if="currentUser">
                     <li><a href="" ng-click="userLogout()">Log Out</a></li>
-                    <li><a href="/profile">{{currentUser}}</a></li>
+                    <li><a href="/profile">{{currentUser.username}}</a></li>
                 </ul>
 
                 <ul class="nav navbar-nav pull-right">
@@ -88,7 +88,7 @@
                     <li ng-if="!currentUser"><a href="/register">Register</a></li>
                     <!-- If current User-->
                     <li ng-if="currentUser"><a href="" ng-click="userLogout()">Log Out</a></li>
-                    <li ng-if="currentUser"><a href="/profile">{{currentUser}}</a></li>
+                    <li ng-if="currentUser"><a href="/profile">{{currentUser.username}}</a></li>
                     <li><a href="/potatoes">Potatoes</a></li>
                     <li><a href="/potatoes/new">Add Potato</a></li>
                 </ul>

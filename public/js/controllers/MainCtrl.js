@@ -3,7 +3,8 @@ angular.module('potatoApp').controller('MainController', function($scope, $rootS
     // Listen for login event
     $scope.$on('event:auth-loginConfirmed', function(event, data){
         $rootScope.isLoggedin = true;
-        $scope.currentUser = data.username;
+        $scope.currentUser = data;
+        
     });
     
     // Logout function
