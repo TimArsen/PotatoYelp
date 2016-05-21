@@ -29,8 +29,7 @@ a:hover {
 
 .navbar {
     margin: 0;
-    background: url('https://corybuckley.files.wordpress.com/2011/04/burlap.jpg');
-    background-size: contain;
+    background: url('http://www.mediafire.com/convkey/00be/58n3z7k9cbkae0bzg.jpg');
     color: white;
     font-family: 'Amatic SC';
     font-size: 2rem;
@@ -171,8 +170,7 @@ header p {
 
 /* POTATOES PAGE STYLES */
 .filter-options {
-    background: url('https://corybuckley.files.wordpress.com/2011/04/burlap.jpg');
-    background-size: contain;
+    background: url('http://www.mediafire.com/convkey/00be/58n3z7k9cbkae0bzg.jpg');
     color: white;
     font-family: 'Amatic SC';
     padding: 20px 10px;
@@ -217,10 +215,9 @@ header p {
 
 
 .thumbnail {
-    background: url('https://corybuckley.files.wordpress.com/2011/04/burlap.jpg');
+    background: url('http://www.mediafire.com/convkey/00be/58n3z7k9cbkae0bzg.jpg');
     border: 3px solid #8a6d3b;
     border-radius: 4px;
-    background-size: cover;
     color: white;
 }
 a.thumbnail:hover {
@@ -498,8 +495,7 @@ hr {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 300px;
-    background: url('https://corybuckley.files.wordpress.com/2011/04/burlap.jpg');
-    background-size: cover;
+    background: url('http://www.mediafire.com/convkey/00be/58n3z7k9cbkae0bzg.jpg');
     border: 3px solid #8a6d3b;
     border-radius: .5em;
     font-size: 2rem;
