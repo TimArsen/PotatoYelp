@@ -207,7 +207,7 @@ header p {
     padding: 0;
 }
 
-.filter-options ul li {
+.filter-options ul li label {
     display: inline-block;
     margin: 0 8px 5px 0;
     padding: 8px 10px;
@@ -215,19 +215,25 @@ header p {
     font-size: 2rem;
     font-weight: 700;
     background-color: #74CB78;
-    transition: all 0.4s ease;
+    transition: background-color 0.4s ease;
 }
 
-.filter-options ul li:hover {
-    background: #8a6d3b;
+.filter-options ul li {
+    display: inline-block;
+}
+
+.filter-options ul li label:hover {
+    background-color: #8a6d3b;
     cursor: pointer;
 }
 
-.filter-options-selected {
-    background: #333 !important;
-    color: #eee;
+#sort-name-radio:checked ~ ul #sort-name-btn, 
+#sort-rating-radio:checked ~ ul #sort-rating-btn, 
+#sort-reviews-radio:checked ~ ul #sort-reviews-btn, 
+#sort-date-radio:checked ~ ul #sort-date-btn
+{
+  background-color: #8a6d3b;
 }
-
 
 .thumbnail {
     background: url('http://www.mediafire.com/convkey/00be/58n3z7k9cbkae0bzg.jpg');
@@ -575,10 +581,6 @@ hr {
 
 
 /* Styles for 5-potato review rating input*/
-
-.hidden {
-  display: none;
-}
 
 #tray {
   display: inline-block;
