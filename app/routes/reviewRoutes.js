@@ -18,7 +18,7 @@ router.post('/',
                         // Create blank Review
                         Review.create(req.body, 
                             function(err, newReview){
-                                //  Handle errors
+                                // Handle errors
                                 if(err){res.send(err)}
                                 // Build Review
                                 newReview.author.id = req.user._id;
@@ -26,14 +26,12 @@ router.post('/',
                                 newReview.save(); // Save Review
                                 // Add Review to Potato
                                 potato.reviews.push(newReview); 
-                                potato.save(); // Save Potato
-                                updatePotatoRatings(potato._id); // Update Potato ratings
-                                // Return new Review 
-                                res.json(newReview); 
+                                potato.save();// Save Potato
                             });
+                        updatePotatoRatings(potato._id);
+                        res.json(potato);
                     });
-        }
-);
+                });
 
 // Show Route
 router.get('/:id', 
@@ -101,7 +99,9 @@ var updatePotatoRatings = function(potatoId){
                         // set num of ratings
                         potato.num_of_reviews = potato.reviews.length;
                         // set average rating (total_ratings / num of reviews)
-                        potato.average_rating = (total_rating/potato.num_of_reviews).toFixed(1);
+                        if(potato.num_of_reviews){
+                            potato.average_rating = (total_rating/potato.num_of_reviews).toFixed(1);
+                        }
                         // save Potato
                         potato.save();
                     });
