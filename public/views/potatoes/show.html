@@ -28,7 +28,7 @@
                 <button class="btn btn-sm btn-success pull-right" id="review-btn" ng-click="collapse()">Review</button>
                 <h3>Reviews for {{potato.name}}</h3>
                 
-                <div id="collapsible-review-input" ng-hide="collapsed">
+                <div id="collapsible-review-input">
                     <div class="review odd-review review-input clearfix">
                         <form ng-submit="newReview()">
                             <div class="form-group">
@@ -61,7 +61,7 @@
                                 <textarea placeholder="Write your review" ng-model="review.comment" id="comment" class="form-control"/>
                               </div>
                               <button type="submit" class="btn btn-sm pull-right btn-success">Submit</button>
-                              <button class="btn btn-sm pull-right btn-warning" ng-click="collapse()">Cancel</button>
+                              <div class="btn btn-sm pull-right btn-warning" id="cancel-review">Cancel</div>
                         </form>
                         
                     </div>
