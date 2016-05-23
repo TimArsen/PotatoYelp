@@ -13,7 +13,8 @@
     <div class="row filter-options">
         <div class="col-xs-12">
             <div class="title">Sorting Options</div>
-        
+            <input ng-model="query">
+            
             <ul class="pull-right">
                 <li ng-click="filter('name')">Name</li>
                 <li ng-click="filter('-average_rating')">Top Rated</li>
@@ -22,8 +23,8 @@
             </ul>
         </div>
     </div>
-    
-    <div class='potatoes-listing' ng-repeat="potato in potatoes | orderBy:order">
+    <H1>{{ query }}</H1>
+    <div class='potatoes-listing' ng-repeat="potato in potatoes | orderBy:order | filter: query">
         <div class="col-xs-6 col-md-3 potato-gallery-potato">
             
             <a href="/potatoes/{{potato._id}}" class="thumbnail">
