@@ -30,9 +30,14 @@ angular.module('potatoApp')
             });
         };
         
-        // Collapse review form function
-        $scope.collapse = function (){
-            $scope.collapsed = !$scope.collapsed;
-        };
+       //open review input on review btn click
+        $('#review-btn').click(function(){
+            $('#collapsible-review-input').slideDown(300);
+        });
+        
+        //close review input on cancel btn click
+        $('#cancel-review').click(function(){
+           $('#collapsible-review-input').slideUp(300);
+        });
         
 });
