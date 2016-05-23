@@ -43,6 +43,11 @@ a:hover {
 .navbar-nav>li>a {
     color: white;
 }
+
+.navbar-header ~ .navbar-nav {
+    text-align: center;
+    margin: 0px;
+}
  
 .navbar ul li {
     color: white;
@@ -149,6 +154,7 @@ header {
     margin: 40px 0 20px 0;
     border-bottom: 1px solid #eee;
     color: white;
+    position: relative;
 }
 
 header h1 {
@@ -162,11 +168,20 @@ header h1 {
 header .logo {
     height: 100px;
     float: left;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.index-title {
+  padding-left: 110px;
 }
 
 header p {
     font-style: italic;
 }
+
+
 
 /* POTATOES PAGE STYLES */
 .filter-options {
@@ -381,6 +396,11 @@ footer {
  .potato-container {
      margin-top: 30px;
  }
+ 
+ .potato-name {
+     white-space: nowrap;
+ }
+ 
  .review {
     border-radius: .5em;
     padding: .5em;
