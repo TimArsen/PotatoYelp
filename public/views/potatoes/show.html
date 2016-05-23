@@ -11,7 +11,7 @@
                     <p>
                         <em>Submitted By <strong>{{potato.author.username}}</strong></em>
                     </p>
-                    <div class="text-right">
+                    <div class="text-right" ng-hide="currentUser._id !== potato.author.id">
                         <a class="btn btn-sm btn-danger delete-button" ng-click="deletePotato(potato)">Delete</a>
                         <a class="btn btn-sm btn-warning" href="/potatoes/{{ potato._id }}/edit">Edit</a>
                     </div>
@@ -25,10 +25,10 @@
             </div>  <!--Thumbnail-->
             <div class="well thumbnail">
                 <!--<a class="btn btn-sm btn-success pull-right" id="review-btn" href="/potatoes/reviews/{{potato._id}}">Review</a>-->
-                <button class="btn btn-sm btn-success pull-right" id="review-btn">Review</button>
+                <button class="btn btn-sm btn-success pull-right" id="review-btn" ng-click="collapse()">Review</button>
                 <h3>Reviews for {{potato.name}}</h3>
                 
-                <div id="collapsible-review-input" class="collapsed">
+                <div id="collapsible-review-input">
                     <div class="review odd-review review-input clearfix">
                         <form ng-submit="newReview()">
                             <div class="form-group">
@@ -61,7 +61,7 @@
                                 <textarea placeholder="Write your review" ng-model="review.comment" id="comment" class="form-control"/>
                               </div>
                               <button type="submit" class="btn btn-sm pull-right btn-success">Submit</button>
-                              <button class="btn btn-sm pull-right btn-warning" id="cancel-review">Cancel</button>
+                              <button class="btn btn-sm pull-right btn-warning" id="cancel-review" ng-click="collapse()">Cancel</button>
                         </form>
                         
                     </div>
@@ -70,14 +70,17 @@
                 
                 
                 <hr>
-                <div ng-repeat="review in reviews">
+                <div ng-repeat="review in potato.reviews">
                     <div class="review" ng-class-odd="'odd-review'">
                         <strong>{{ review.author.username }}</strong>
-                        <span class="pull-right">10 days ago **ADD DATE HERE**</span>
+                        <span class="pull-right">{{ review.date | date : format : shortDate}}</span>
                         <p>
-                            {{ review.comment }} - {{ review.rating }}
+                            {{ review.comment }}
+                        </p> 
+                        <p>
+                            {{ review.rating }} out of 5 potatoes
                         </p>
-                        <div ng-if="$rootScope.currentUser = review.author.username" class="text-right">
+                        <div ng-if="review.author.id == currentUser._id" class="text-right">
                             <a class="btn btn-xs btn-warning" href="#">Edit</a>
                             <a class="btn btn-xs btn-danger" ng-click="deleteReview(review)">Delete</a>
                         </div>

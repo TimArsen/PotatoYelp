@@ -16,6 +16,7 @@ a {
 a:hover {
     text-decoration: none;
     cursor: pointer;
+    color: #8a6d3b;
 }
 
  h3 {
@@ -28,8 +29,7 @@ a:hover {
 
 .navbar {
     margin: 0;
-    background: url('https://corybuckley.files.wordpress.com/2011/04/burlap.jpg');
-    background-size: contain;
+    background: url('http://www.mediafire.com/convkey/00be/58n3z7k9cbkae0bzg.jpg');
     color: white;
     font-family: 'Amatic SC';
     font-size: 2rem;
@@ -42,6 +42,11 @@ a:hover {
 }
 .navbar-nav>li>a {
     color: white;
+}
+
+.navbar-header ~ .navbar-nav {
+    text-align: center;
+    margin: 0px;
 }
  
 .navbar ul li {
@@ -149,6 +154,7 @@ header {
     margin: 40px 0 20px 0;
     border-bottom: 1px solid #eee;
     color: white;
+    position: relative;
 }
 
 header h1 {
@@ -162,16 +168,24 @@ header h1 {
 header .logo {
     height: 100px;
     float: left;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.index-title {
+  padding-left: 110px;
 }
 
 header p {
     font-style: italic;
 }
 
+
+
 /* POTATOES PAGE STYLES */
 .filter-options {
-    background: url('https://corybuckley.files.wordpress.com/2011/04/burlap.jpg');
-    background-size: contain;
+    background: url('http://www.mediafire.com/convkey/00be/58n3z7k9cbkae0bzg.jpg');
     color: white;
     font-family: 'Amatic SC';
     padding: 20px 10px;
@@ -216,10 +230,9 @@ header p {
 
 
 .thumbnail {
-    background: url('https://corybuckley.files.wordpress.com/2011/04/burlap.jpg');
+    background: url('http://www.mediafire.com/convkey/00be/58n3z7k9cbkae0bzg.jpg');
     border: 3px solid #8a6d3b;
     border-radius: 4px;
-    background-size: cover;
     color: white;
 }
 a.thumbnail:hover {
@@ -383,6 +396,11 @@ footer {
  .potato-container {
      margin-top: 30px;
  }
+ 
+ .potato-name {
+     white-space: nowrap;
+ }
+ 
  .review {
     border-radius: .5em;
     padding: .5em;
@@ -466,8 +484,22 @@ hr {
 #review-btn {
     margin: 0 7px;
 }
+#register-modal {
+    color: white;
+    font-family: 'Amatic SC';
+    font-weight: 700;
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+    background-color: rgba(0,0,0,.75);
+}
  
 #login-modal {
+    color: white;
+    font-family: 'Amatic SC';
+    font-weight: 700;
     position: fixed;
     top: 0;
     height: 100%;
@@ -477,16 +509,36 @@ hr {
 }
 
 .login-form {
+    padding: 1em;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    max-width: 300px;
-    background: url('https://corybuckley.files.wordpress.com/2011/04/burlap.jpg');
-    background-size: cover;
+    width: 300px;
+    background: url('http://www.mediafire.com/convkey/00be/58n3z7k9cbkae0bzg.jpg');
     border: 3px solid #8a6d3b;
     border-radius: .5em;
+    font-size: 2rem;
 }
+
+.login-form .title {
+    margin: 0;
+    font-size: 7rem;
+}
+
+.login-form .bottom {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.x {
+    font-size: 4rem;
+    position: absolute;
+    right: 5%;
+    top: 0;
+ }
 
 .form {
     padding: 1em;
@@ -500,8 +552,8 @@ hr {
 }
 
 .form-button {
-    display: inline-block;
-    margin: 0 8px 5px 0;
+    display: block;
+    margin: 0 auto;
     padding: 8px 10px;
     border: 1px solid #777;
     color: white;

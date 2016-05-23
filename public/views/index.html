@@ -19,6 +19,7 @@
         <script src="./libs/angular/angular.min.js"></script>
         <script src="./libs/angular-route/angular-route.min.js"></script>
         <script src="./libs/angular-resource/angular-resource.min.js"></script>
+        <script src="./libs/angular-animate/angular-animate.min.js"></script>
         <script src="./libs/angular-http-auth/src/http-auth-interceptor.js"></script>
 
         <!-- ANGULAR CUSTOM -->
@@ -64,8 +65,8 @@
 
                     <!-- If no user signed in -->
                     <ul class="nav navbar-nav pull-right" ng-if="!currentUser">
-                        <li><a href="/register">Register</a></li>
-                        <li><a href="/login">Sign In</a></li>
+                        <li><a href="" ng-click="userRegister()">Register</a></li>
+                        <li><a href="" ng-click="userLogin()">Sign In</a></li>
                     </ul>
     
                     <!-- If user is signed in -->
@@ -87,8 +88,8 @@
                 <nav class='footer-nav'>
                     <ul>
                         <!-- If no surrent User-->
-                        <li ng-if="!currentUser"><a href="/login">Sign In</a></li>
-                        <li ng-if="!currentUser"><a href="/register">Register</a></li>
+                        <li ng-if="!currentUser"><a href="" ng-click="userLogin()">Sign In</a></li>
+                        <li ng-if="!currentUser"><a href="" ng-click="userRegister()">Register</a></li>
                         <!-- If current User-->
                         <li ng-if="currentUser"><a href="" ng-click="userLogout()">Log Out</a></li>
                         <li ng-if="currentUser"><a href="/profile">{{currentUser.username}}</a></li>
@@ -101,7 +102,8 @@
             </footer>
             <section id="login-modal" ng-app="potatoApp" ng-controller="LoginController" ng-show="loginModal">
                 <div class="login-form">
-                    <h1 class="text-center view-title">Login</h1>
+                    <a href="" class="x" ng-click="close()">X</a>
+                    <h1 class="text-center title">Login</h1>
                     <div class="form">
                         <form ng-submit="userLogin()" class="clearfix">
                             <div class="form-group">
@@ -112,9 +114,29 @@
                                 <label for="password">Password:</label>
                                 <input placeholder="Enter your password" type="password" ng-model="user.password" id="password" class="form-control"/>
                               </div>
-                              <button type="submit" class="form-button pull-right">Login</button>
-                              {{ error }}
+                              <button type="submit" class="form-button">Login</button>
                         </form>
+                        <span class="bottom">Need to <a href="" ng-click="showRegister()">Register?</a></span>
+                    </div><!--form-->
+                </div>  <!--Login Form-->
+            </section>
+            <section id="register-modal" ng-app="potatoApp" ng-controller="LoginController" ng-show="registerModal">
+                <div class="login-form">
+                    <a href="" class="x" ng-click="close()">X</a>
+                    <h1 class="text-center title">Register</h1>
+                    <div class="form">
+                        <form ng-submit="userRegister()" class="clearfix">
+                            <div class="form-group">
+                                <label for="username">Username:</label>
+                                <input placeholder="Desired username" ng-model="user.username" id="username" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password:</label>
+                                <input placeholder="Enter your password" type="password" ng-model="user.password" id="password" class="form-control"/>
+                            </div>
+                            <button type="submit" class="form-button">Register</button>
+                        </form>
+                        <span class="bottom">Already registered? <a href="" ng-click="showLogin()">Login</a></span>
                     </div><!--form-->
                 </div>  <!--Login Form-->
             </section>
