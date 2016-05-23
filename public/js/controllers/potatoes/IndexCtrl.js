@@ -2,8 +2,11 @@ angular.module('potatoApp').controller('PotatoesController', function($scope, Po
 
     $scope.potatoes = PotatoResource.query();
     
-    $(".filter-options li").on('click', function() {
-        $(this).toggleClass("filter-options-selected")
-    })
+    $scope.order = "name";
+    
+    // set filter
+    $scope.filter = function(order){
+            $scope.order = order;
+    };
     
 });
