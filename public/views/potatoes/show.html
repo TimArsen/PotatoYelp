@@ -11,7 +11,7 @@
                     <p>
                         <em>Submitted By <strong>{{potato.author.username}}</strong></em>
                     </p>
-                    <div class="text-right">
+                    <div class="text-right" ng-hide="currentUser._id !== potato.author.id">
                         <a class="btn btn-sm btn-danger delete-button" ng-click="deletePotato(potato)">Delete</a>
                         <a class="btn btn-sm btn-warning" href="/potatoes/{{ potato._id }}/edit">Edit</a>
                     </div>
@@ -80,7 +80,7 @@
                         <p>
                             {{ review.rating }} out of 5 potatoes
                         </p>
-                        <div ng-if="$rootScope.currentUser = review.author.username" class="text-right">
+                        <div ng-if="review.author.id == currentUser._id" class="text-right">
                             <a class="btn btn-xs btn-warning" href="#">Edit</a>
                             <a class="btn btn-xs btn-danger" ng-click="deleteReview(review)">Delete</a>
                         </div>

@@ -12,7 +12,7 @@ angular.module('potatoApp')
             // Listen for logout event
             $scope.$on('event:auth-loginCancelled', function(event, data){
                 $rootScope.isLoggedin = false;
-                $scope.currentUser = false;
+                $scope.currentUser = {};
             });
             
             // Register Function

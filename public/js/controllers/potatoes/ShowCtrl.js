@@ -1,6 +1,6 @@
 angular.module('potatoApp')
     .controller('ShowController', 
-    function($scope, PotatoResource, ReviewResource, $routeParams, $location) {
+    function($scope, $rootScope, PotatoResource, ReviewResource, $routeParams, $location) {
         
         $scope.loadData = function () {
             // Fetch Potato from database
@@ -13,6 +13,7 @@ angular.module('potatoApp')
             $scope.review.potato = { id: id};
             
             $scope.collapsed = true;
+            
         };
         
         $scope.loadData();
@@ -33,5 +34,5 @@ angular.module('potatoApp')
         $scope.collapse = function (){
             $scope.collapsed = !$scope.collapsed;
         };
-    
+        
 });
