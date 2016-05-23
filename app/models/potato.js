@@ -6,9 +6,6 @@ module.exports = mongoose.model('Potato', {
     name : String,
     image : String,
     description: String,
-    country_of_origin: String,
-    best_use: String,
-    wikipedia_link: String,
     date: { type: Date, default: Date.now },
     author: {
       id: {
