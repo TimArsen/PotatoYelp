@@ -10,6 +10,8 @@
         </div>
     </div>
     
+    <!--
+    
     <div class="row filter-options">
         <div class="col-xs-12">
             <div class="title">Sorting Options</div>
@@ -23,7 +25,30 @@
             </ul>
         </div>
     </div>
-    <H1>{{ query }}</H1>
+    
+    -->
+    
+    <div class="row filter-options">
+      <div class="col-xs-12">
+        <div class="title">Sorting Options</div>
+        <form>
+          <input class="hidden" type="radio" name="sort" id="sort-name-radio" checked>
+          <input class="hidden" type="radio" name="sort" id="sort-rating-radio">
+          <input class="hidden" type="radio" name="sort" id="sort-reviews-radio">
+          <input class="hidden" type="radio" name="sort" id="sort-date-radio">
+    
+          <ul class="pull-right">
+            <li><input ng-model="query"></li>
+            <li><label ng-click="filter('name')" id="sort-name-btn" for="sort-name-radio">Name</label></li>
+            <li><label ng-click="filter('-average_rating')" id="sort-rating-btn" for="sort-rating-radio">Top Rated</label></li>
+            <li><label ng-click="filter('-num_of_reviews')" id="sort-reviews-btn" for="sort-reviews-radio">Most Reviews</label></li>
+            <li><label ng-click="filter('-date')" id="sort-date-btn" for="sort-date-radio">Newest</label></li>
+          </ul>
+        </form>
+      </div>
+    </div>
+    
+    <h1>{{ query }}</h1>
     <div class='potatoes-listing' ng-repeat="potato in potatoes | orderBy:order | filter: query">
         <div class="col-xs-6 col-md-3 potato-gallery-potato">
             
