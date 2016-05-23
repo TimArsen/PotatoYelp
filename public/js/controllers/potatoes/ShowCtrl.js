@@ -31,6 +31,7 @@ angular.module('potatoApp')
         };
         
         //open review input on review btn click
+       //open review input on review btn click
         $('#review-btn').click(function(){
             $('#collapsible-review-input').slideDown(300);
         });
@@ -38,6 +39,6 @@ angular.module('potatoApp')
         //close review input on cancel btn click
         $('#cancel-review').click(function(){
            $('#collapsible-review-input').slideUp(300);
-        });    
+        });  
         
 });
