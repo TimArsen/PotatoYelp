@@ -33,8 +33,11 @@
     </div>
     
     <div id="query-title">
-        <input ng-blur="searchBlur()" ng-model="query" id="search-input">
+        <input ng-keydown="resizeInput($event)" ng-keyup="resizeInputRemoval()" ng-blur="searchBlur()" ng-model="query" id="search-input" contenteditable="true"></input>
         <button ng-show="query" ng-click="searchCancel()" id="cancel-search">X</button>
+        <div ng-hide="query" id="cancel-placeholder"></div>
+        <br>
+        <span style="display:none">{{query}}</span>
     </div>
     
     <div class='potatoes-listing' ng-repeat="potato in potatoes | orderBy:order | filter: query">

@@ -184,6 +184,9 @@ header p {
 
 
 /* POTATOES PAGE STYLES */
+
+
+/* FILTERS */
 .filter-options {
     background: url('http://www.mediafire.com/convkey/00be/58n3z7k9cbkae0bzg.jpg');
     color: white;
@@ -237,16 +240,6 @@ header p {
   background-color: #8a6d3b;
 }
 
-#search-input {
-    background-color:transparent;
-    border:none;
-    width: calc(100% - 60px);
-}
-
-#search-input:focus {
-    outline: none;
-}
-
 #query-title {
     color: white;
     font-family: 'Amatic SC';
@@ -255,6 +248,18 @@ header p {
     font-weight: 600;
     padding: 20px 10px 0 10px;
     overflow:hidden;
+    text-align: center;
+}
+
+#search-input {
+    background-color:transparent;
+    border:none;
+    width: 30px;
+    text-align: right;
+}
+
+#search-input:focus {
+    outline: none;
 }
 
 #cancel-search {
@@ -271,9 +276,21 @@ header p {
     outline: none;
 }
 
+#cancel-placeholder {
+    display: inline-block;
+    width: 50px;
+}
+
 #cancel-search:hover {
     background-color: rgba(30,30,30,0.3);
 }
+
+#query-title span {
+    display:inline-block;
+}
+
+
+/* POTATOES */
 
 .thumbnail {
     background: url('http://www.mediafire.com/convkey/00be/58n3z7k9cbkae0bzg.jpg');
