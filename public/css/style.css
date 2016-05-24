@@ -209,17 +209,18 @@ header p {
 
 .filter-options ul li label {
     display: inline-block;
-    margin: 0 8px 5px 0;
     padding: 8px 10px;
     border: 1px solid #777;
     font-size: 2rem;
     font-weight: 700;
     background-color: #74CB78;
     transition: background-color 0.4s ease;
+    margin-bottom: 0px;
 }
 
 .filter-options ul li {
     display: inline-block;
+    margin: 5px 2px;
 }
 
 .filter-options ul li label:hover {
@@ -227,12 +228,51 @@ header p {
     cursor: pointer;
 }
 
+#search-chkbx:checked ~ ul #search-btn, 
 #sort-name-radio:checked ~ ul #sort-name-btn, 
 #sort-rating-radio:checked ~ ul #sort-rating-btn, 
 #sort-reviews-radio:checked ~ ul #sort-reviews-btn, 
 #sort-date-radio:checked ~ ul #sort-date-btn
 {
   background-color: #8a6d3b;
+}
+
+#search-input {
+    background-color:transparent;
+    border:none;
+    width: calc(100% - 60px);
+}
+
+#search-input:focus {
+    outline: none;
+}
+
+#query-title {
+    color: white;
+    font-family: 'Amatic SC';
+    display:none;
+    font-size: 6rem;
+    font-weight: 600;
+    padding: 20px 10px 0 10px;
+    overflow:hidden;
+}
+
+#cancel-search {
+    -webkit-appearance: initial;
+    background-color: rgba(30,30,30,0.1);
+    border:none;
+    border-radius: 50%;
+    display: inline-block;
+    width: 50px;
+    transition: background-color 0.1s ease;
+}
+
+#cancel-search:focus {
+    outline: none;
+}
+
+#cancel-search:hover {
+    background-color: rgba(30,30,30,0.3);
 }
 
 .thumbnail {
@@ -567,7 +607,7 @@ hr {
     font-size: 2rem;
     font-weight: 700;
     background-color: #74CB78;
-    transition: all 0.4s ease;
+    transition: background-color 0.4s ease;
 }
 .form-button:hover {
     background-color: #8a6d3b;

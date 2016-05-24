@@ -34,5 +34,3 @@ angular.module('potatoApp')
                 });
             };
 });
-
-    
