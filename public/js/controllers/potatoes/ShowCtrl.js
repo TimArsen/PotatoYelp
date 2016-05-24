@@ -66,7 +66,7 @@ angular.module('potatoApp')
                 $rootScope.$broadcast('event:auth-loginRequired', {}); 
             };
             
-            //open review input on review btn click
+            //  Open review input 
             $scope.showReview = function (){
                 $('#collapsible-review-input').slideToggle(300);
             }; 

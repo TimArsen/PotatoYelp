@@ -8,6 +8,7 @@
                 <div class="caption-full" id="caption-content">
                     <hr>
                     <h1>{{potato.name}}</h1>
+                    <p>{{potato.description}}</p>
                     <p>
                         <em>Submitted By <strong>{{potato.author.username}}</strong></em>
                     </p>
@@ -20,7 +21,6 @@
                         Average Rating: {{potato.average_rating}} out of 5 potatoes<br> 
                         {{potato.num_of_reviews}} reviews
                     </p>
-                    <p>{{potato.description}}</p>
                 </div>  <!--caption-->
             </div>  <!--Thumbnail-->
             <div class="well thumbnail">
@@ -64,7 +64,7 @@
                               </div>
                               <button type="submit" class="btn btn-sm pull-right btn-success" ng-if="!hasReview"  ng-click="newReview()">Submit</button>
                               <button type="submit" class="btn btn-sm pull-right btn-success" ng-if="hasReview"  ng-click="updateReview()">Update</button>
-                              <div class="btn btn-sm pull-right btn-warning" ng-click="showReview">Cancel</div>
+                              <div class="btn btn-sm pull-right btn-warning" ng-click="showReview()">Cancel</div>
                         </form>
                         
                     </div>
