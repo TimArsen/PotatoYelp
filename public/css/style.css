@@ -345,11 +345,11 @@ a.thumbnail:hover {
 }
 
 footer {
+    position:absolute;
     bottom: 0px;
     left: 0px;
     width: 100%;
     background: #8a6d3b;
-    background-size: cover;
     color: white;
     display: block;
     border-top: 3px solid #fcf8e3;
