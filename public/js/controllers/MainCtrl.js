@@ -33,4 +33,10 @@ angular.module('potatoApp')
                     authService.loginCancelled();
                 });
             };
+            
+            // expand #footer-padding to size of footer so footer does not hide content
+            $( document ).ready(function() {
+                var footerHeight = $('footer').css('height');
+                $('#footer-padding').css('height', footerHeight);
+            });
 });
