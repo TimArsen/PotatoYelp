@@ -307,10 +307,12 @@ a.thumbnail:hover {
     border-radius: .5em;
     height: 150px;
     overflow: hidden;
+    background: center/cover no-repeat;
 }
 
 .potatoes-listing img {
-    width: 100%;
+    min-width: 100%;
+    min-height: 100%;
     position: relative;
     top: 50%;
     left: 50%;
