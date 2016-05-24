@@ -14,11 +14,11 @@ angular.module('potatoApp')
                 // Fetch Potato from database
                 $scope.potato = PotatoResource.get({ id: $routeParams.id });
                 
-                if($scope.currentUser){
+                if($scope.currentUser && $scope.potato){
                     $scope.potato.$promise.then(function(potato) {
                                 potato.reviews.forEach(function(review, index, reviews){
                                 if(review.author.id == $scope.currentUser._id){
-                                    $scope.review = ReviewResource.get({ id: review._id });;
+                                    $scope.review = ReviewResource.get({ id: review._id });
                                     $scope.hasReview = true;
                                 }
                             });
