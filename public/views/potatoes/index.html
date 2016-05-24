@@ -10,45 +10,33 @@
         </div>
     </div>
     
-    <!--
-    
-    <div class="row filter-options">
-        <div class="col-xs-12">
-            <div class="title">Sorting Options</div>
-            <input ng-model="query">
-            
-            <ul class="pull-right">
-                <li ng-click="filter('name')">Name</li>
-                <li ng-click="filter('-average_rating')">Top Rated</li>
-                <li ng-click="filter('-num_of_reviews')">Most Reviews</li>
-                <li ng-click="filter('-date')">Newest</li>
-            </ul>
-        </div>
-    </div>
-    
-    -->
-    
     <div class="row filter-options">
       <div class="col-xs-12">
-        <div class="title">Sorting Options</div>
+        <div class="title pull-left">Sorting Options</div>
         <form>
-          <input class="hidden" type="radio" name="sort" id="sort-name-radio" checked>
-          <input class="hidden" type="radio" name="sort" id="sort-rating-radio">
-          <input class="hidden" type="radio" name="sort" id="sort-reviews-radio">
-          <input class="hidden" type="radio" name="sort" id="sort-date-radio">
-    
-          <ul class="pull-right">
-            <li><input ng-model="query"></li>
-            <li><label ng-click="filter('name')" id="sort-name-btn" for="sort-name-radio">Name</label></li>
-            <li><label ng-click="filter('-average_rating')" id="sort-rating-btn" for="sort-rating-radio">Top Rated</label></li>
-            <li><label ng-click="filter('-num_of_reviews')" id="sort-reviews-btn" for="sort-reviews-radio">Most Reviews</label></li>
-            <li><label ng-click="filter('-date')" id="sort-date-btn" for="sort-date-radio">Newest</label></li>
-          </ul>
+            <input class="hidden" type="checkbox" id="search-chkbx" ng-model="searching">
+            <input class="hidden" type="radio" name="sort" id="sort-name-radio" checked>
+            <input class="hidden" type="radio" name="sort" id="sort-rating-radio">
+            <input class="hidden" type="radio" name="sort" id="sort-reviews-radio">
+            <input class="hidden" type="radio" name="sort" id="sort-date-radio">
+            
+            
+            <ul class="pull-right">
+                <li><label for="search-chkbx" ng-click="searchClick()" id="search-btn">🔍</label></li>
+                <li><label ng-click="filter('name')" id="sort-name-btn" for="sort-name-radio">Name</label></li>
+                <li><label ng-click="filter('-average_rating')" id="sort-rating-btn" for="sort-rating-radio">Top Rated</label></li>
+                <li><label ng-click="filter('-num_of_reviews')" id="sort-reviews-btn" for="sort-reviews-radio">Most Reviews</label></li>
+                <li><label ng-click="filter('-date')" id="sort-date-btn" for="sort-date-radio">Newest</label></li>
+            </ul>
         </form>
       </div>
     </div>
     
-    <h1>{{ query }}</h1>
+    <div id="query-title">
+        <input ng-blur="searchBlur()" ng-model="query" id="search-input">
+        <button ng-show="query" ng-click="searchCancel()" id="cancel-search">X</button>
+    </div>
+    
     <div class='potatoes-listing' ng-repeat="potato in potatoes | orderBy:order | filter: query">
         <div class="col-xs-6 col-md-3 potato-gallery-potato">
             
