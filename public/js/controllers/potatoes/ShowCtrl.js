@@ -34,6 +34,7 @@ angular.module('potatoApp')
             // Delete Potato function
             $scope.deletePotato = function(potato){
                 potato.$delete();
+                $location.path('/potatoes');
             };
             
             // Create new review function
