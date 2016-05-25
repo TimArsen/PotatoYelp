@@ -62,9 +62,12 @@
                                 <label for="image">Review this Potato</label>
                                 <textarea placeholder="Write your review" ng-model="review.comment" id="comment" class="form-control"  required/>
                               </div>
-                              <button type="submit" class="btn btn-sm pull-right btn-success" ng-if="!hasReview"  ng-click="newReview()">Submit</button>
-                              <button type="submit" class="btn btn-sm pull-right btn-success" ng-if="hasReview"  ng-click="updateReview()">Update</button>
-                              <div class="btn btn-sm pull-right btn-warning" ng-click="showReview()">Cancel</div>
+                              <div class="button-holder pull-right">
+                                  <button type="submit" class="btn btn-sm btn-success" ng-if="!hasReview"  ng-click="newReview()">Submit</button>
+                                  <button type="submit" class="btn btn-sm btn-success" ng-if="hasReview"  ng-click="updateReview()">Update</button>
+                                  <button class="btn btn-sm btn-danger" ng-if="hasReview"  ng-click="deleteReview()">Delete</button>
+                                  <div class="btn btn-sm btn-warning" ng-click="showReview()">Cancel</div>
+                              </div>
                         </form>
                         
                     </div>

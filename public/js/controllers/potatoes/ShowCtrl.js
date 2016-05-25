@@ -44,6 +44,13 @@ angular.module('potatoApp')
                 });
             };
             
+            // Delete review function
+            $scope.deleteReview = function(){
+                $scope.review.$delete(function(){
+                    $scope.loadData();
+                });
+            };
+            
             // Update review function
             $scope.updateReview = function(){
                 $scope.review.$update(function(){
