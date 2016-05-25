@@ -12,6 +12,17 @@ var middleware  = require("../middleware/middleware");
             Potato.find(function(err, potatoes) { // Find all Potatoes in the database
                 // Handle errors
                 if (err){console.log(err)}
+                
+                // Append Ratings
+                for (var i=0; i< potatoes.length; i++){
+                    var totRating = 0;
+                    for (var n=0; n < potatoes[i].reviews.length; n++){
+                        totRating +=  potatoes[i].reviews[n].rating;
+                    }
+                    potatoes[i].num_of_reviews = potatoes[i].reviews.length;
+                    potatoes[i].average_rating = (totRating/potatoes[i].num_of_reviews).toFixed(1);
+                }
+                
                 // return all potatoes in JSON format
                 res.json(potatoes); 
         });
@@ -39,6 +50,15 @@ var middleware  = require("../middleware/middleware");
                     .exec(function(err, potato){
                             // Handle errors
                             if(err) {res.send(err)}
+                            
+                            // Add average rating & num of reviews
+                            var totRating = 0;
+                            for (var i=0; i < potato.reviews.length; i++){
+                                totRating +=  potato.reviews[i].rating;
+                            }
+                            potato.num_of_reviews = potato.reviews.length;
+                            potato.average_rating = (totRating/potato.num_of_reviews).toFixed(1);
+                            
                             // return potato in JSON format
                             res.json(potato);
                     });

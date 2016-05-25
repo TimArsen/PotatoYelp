@@ -23,7 +23,5 @@ module.exports = mongoose.model('Potato', {
          // it is an ObjectId of the model exported as "User"
          ref: "Review"
     }
-    ],
-    average_rating: { type: Number, min: 1, max: 5 },
-    num_of_reviews: Number
+    ]
 });

@@ -28,7 +28,6 @@ router.post('/',
                                 potato.reviews.push(newReview); 
                                 potato.save();// Save Potato
                             });
-                        updatePotatoRatings(potato._id);
                         res.json(potato);
                     });
                 });
@@ -54,7 +53,6 @@ router.put('/:id',
                 function(err, review){
                     //  Handle errors
                     if(err){res.send(err)}
-                    updatePotatoRatings(review.potato.id); // Update Potato ratings
                     // return updated review in JSON format
                     res.json(review);
                 }
@@ -77,34 +75,10 @@ router.delete('/:id',
                         // Respond if successful
                         res.send("Review successfully deleted");
                     });
-                    updatePotatoRatings(review.potato.id); // Update Potato ratings
                 }
             );
         }
 );
 
-var updatePotatoRatings = function(potatoId){
-    Potato.findById(potatoId) // Find Potato in database
-                .populate("reviews")    // add Reviews to Potato
-                    .exec(function(err, potato){ 
-                        //  Handle errors
-                        if(err){return(err)}
-                        // add up Potato ratings
-                        var total_rating = 0;
-                        potato.reviews.forEach(function(review){
-                            if(review.rating){
-                                total_rating += review.rating;
-                            }
-                        });
-                        // set num of ratings
-                        potato.num_of_reviews = potato.reviews.length;
-                        // set average rating (total_ratings / num of reviews)
-                        if(potato.num_of_reviews){
-                            potato.average_rating = (total_rating/potato.num_of_reviews).toFixed(1);
-                        }
-                        // save Potato
-                        potato.save();
-                    });
-};
 
 module.exports = router;

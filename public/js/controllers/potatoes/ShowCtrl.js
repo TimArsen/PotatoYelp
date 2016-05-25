@@ -14,6 +14,7 @@ angular.module('potatoApp')
                 // Fetch Potato from database
                 $scope.potato = PotatoResource.get({ id: $routeParams.id });
                 
+                // Check for a review from current user
                 if($scope.currentUser && $scope.potato){
                     $scope.potato.$promise.then(function(potato) {
                                 potato.reviews.forEach(function(review, index, reviews){
