@@ -68,11 +68,13 @@ var middleware  = require("../middleware/middleware");
     router.put('/:id', 
         middleware.checkPotatoOwnership, // Check if User owns Potato
         function(req, res){
+            console.log(req.params.id);
            Potato.findByIdAndUpdate(req.params.id, req.body, //Find Potato and update in database
                 function(err, newPotato){
                 // Handle errors
-                if(err) {res.send(err)}
+                if(err) {console.log(err)}
                 // return updated potato in JSON format
+                console.log(newPotato);
                 res.json(newPotato);
         });
     });
