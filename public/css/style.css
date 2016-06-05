@@ -53,11 +53,14 @@ a:hover {
     color: white;
     transition: all 0.3s ease-in-out;
     border-radius: .5em;
-    
 }
 
-.nav>li>a:focus, .navbar-nav>li>a:hover {
-    background: #74CB78;
+.nav>li>a:focus {
+    background: none;
+}
+
+.navbar-nav>li>a:hover {
+    background-color: #74CB78;
     color: white;
 }
 
