@@ -43,7 +43,8 @@ angular.module('potatoApp').controller('PotatoesController', function($scope, Po
     };
     
     $scope.searchBlur = function() { //ng-blur function for search input
-        if (!$scope.query) {
+        //if search btn is not currently being clicked and there is no text in the search input, then close the input and reset all variables used for sizing the input
+        if (!$('#search-btn').is('#search-btn:active') && !$scope.query) { 
             $('#query-title').slideUp(100, function() {
                 $('#search-chkbx').attr('checked',false);
                 $scope.searching = false;
@@ -60,7 +61,6 @@ angular.module('potatoApp').controller('PotatoesController', function($scope, Po
     }
     
     $scope.searchClick = function() { //ng-click function for search "🔍" button
-        
         if (!$scope.searching) {
             $('#query-title').slideDown(100);
             $('#search-input').focus();
