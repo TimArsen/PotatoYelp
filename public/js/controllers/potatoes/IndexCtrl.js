@@ -15,7 +15,7 @@ angular.module('potatoApp').controller('PotatoesController', function($scope, Po
             $scope.order = order;
     };
     
-    $scope.searchBlur = function() {
+    $scope.searchBlur = function() { //ng-blur function for search input
         if (!$scope.query) {
             $('#query-title').slideUp(100, function() {
                 $('#search-chkbx').attr('checked',false);
@@ -27,12 +27,12 @@ angular.module('potatoApp').controller('PotatoesController', function($scope, Po
         }
     } 
     
-    $scope.searchCancel = function () {
+    $scope.searchCancel = function () { //ng-click function for search "X" button
         $scope.query = "";
         $scope.searchBlur();
     }
     
-    $scope.searchClick = function() {
+    $scope.searchClick = function() { //ng-click function for search "🔍" button
         
         if (!$scope.searching) {
             $('#query-title').slideDown(100);
@@ -42,9 +42,11 @@ angular.module('potatoApp').controller('PotatoesController', function($scope, Po
         }
     }
     
-    $scope.resizeInput = function(e) {
+    
+    
+    $scope.resizeInput = function(e) { //resize the search input when text is entered to keep it centered
         oldLength = $('#search-input').val().length;
-        var spanWidth = $('#query-title span').width() + 30;
+        var spanWidth = $('#query-title span').width() + 30; //set spanWidth to width of the hidden, dynamically-resized span
         if (e.which === 32){ //if key is space bar, add 9 px to width
             spaces++;
         }
@@ -59,7 +61,7 @@ angular.module('potatoApp').controller('PotatoesController', function($scope, Po
         }
     }
     
-    $scope.resizeInputRemoval = function() {
+    $scope.resizeInputRemoval = function() { //resize the search input when text is removed to keep it centered
         setTimeout(function() {
             var newLength = $('#search-input').val().length;
             var spanWidth = $('#query-title span').width() + 30;
