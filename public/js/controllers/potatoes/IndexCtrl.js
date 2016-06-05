@@ -11,8 +11,35 @@ angular.module('potatoApp').controller('PotatoesController', function($scope, Po
     var oldLength;
     
     // set filter
-    $scope.filter = function(order){
+    $scope.filter = function(e, order){ //ng-click function for sorting buttons
+        if ($scope.order == order || $scope.order == '-' + order || $scope.order == order.substr(1)) { // if the button is already chosen
+            if ($scope.order.charAt(0) == '-') { // if the sort is already reverse
+                var nonreverse = order.substr(1); //set var nonreverse to the order str without the '-'
+                $scope.order = nonreverse; //make the order nonreverse
+                $(e.currentTarget).attr('title', 'Sort Ascending').html(
+                    $(e.currentTarget).html().slice(0,-1) + "▴"
+                    );
+            } else { //if the sort is not already reverse
+                var reverse = '-' + order;
+                $scope.order = reverse; //reverse the order
+                $(e.currentTarget).attr('title', 'Sort Descending').html(
+                    $(e.currentTarget).html().slice(0,-1) + "▾"
+                    );
+            }
+        } else { //if clicking on a button different than the one chosen
             $scope.order = order;
+            //reset title and arrow on all buttons
+            $('.sort-desc').attr('title', 'Sort Descending').each(function() {
+                    $(this).html(
+                        $(this).html().slice(0,-1) + "▾"
+                        );
+                });
+            $('.sort-asc').attr('title', 'Sort Ascending').each(function() {
+                    $(this).html(
+                        $(this).html().slice(0,-1) + "▴"
+                        );
+                });
+        }
     };
     
     $scope.searchBlur = function() { //ng-blur function for search input

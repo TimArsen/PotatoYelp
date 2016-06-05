@@ -22,11 +22,11 @@
             
             
             <ul class="pull-right">
-                <li><label for="search-chkbx" ng-click="searchClick()" id="search-btn">🔍</label></li>
-                <li><label ng-click="filter('name')" id="sort-name-btn" for="sort-name-radio">Name</label></li>
-                <li><label ng-click="filter('-average_rating')" id="sort-rating-btn" for="sort-rating-radio">Top Rated</label></li>
-                <li><label ng-click="filter('-num_of_reviews')" id="sort-reviews-btn" for="sort-reviews-radio">Most Reviews</label></li>
-                <li><label ng-click="filter('-date')" id="sort-date-btn" for="sort-date-radio">Newest</label></li>
+                <li><label for="search-chkbx" ng-click="searchClick()" id="search-btn" title="Search">🔍</label></li>
+                <li><label ng-click="filter($event, 'name')" id="sort-name-btn" for="sort-name-radio" class="sort-asc" title="Sort Ascending">Name ▴</label></li>
+                <li><label ng-click="filter($event, '-average_rating')" id="sort-rating-btn" for="sort-rating-radio" class="sort-desc" title="Sort Descending">Top Rated ▾</label></li>
+                <li><label ng-click="filter($event, '-num_of_reviews')" id="sort-reviews-btn" for="sort-reviews-radio" class="sort-desc" title="Sort Descending">Most Reviews ▾</label></li>
+                <li><label ng-click="filter($event, '-date')" id="sort-date-btn" for="sort-date-radio" class="sort-desc" title="Sort Descending">Newest ▾</label></li>
             </ul>
         </form>
       </div>
