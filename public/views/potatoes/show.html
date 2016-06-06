@@ -10,7 +10,7 @@
                     <h1>{{potato.name}}</h1>
                     <p>{{potato.description}}</p>
                     <p>
-                        <em>Submitted By <strong>{{potato.author.username}}</strong></em>
+                        <em>Submitted By <strong>{{potato.author.username}}</strong> on <strong>{{potato.dateCreated}}</strong></em>
                     </p>
                     <div class="text-right" ng-hide="currentUser._id !== potato.author.id">
                         <a class="btn btn-sm btn-danger delete-button" ng-click="deletePotato(potato)">Delete</a>

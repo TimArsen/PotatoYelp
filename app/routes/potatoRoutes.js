@@ -67,6 +67,8 @@ var middleware  = require("../middleware/middleware");
                             potato.num_of_reviews = potato.reviews.length;
                             potato.average_rating = (totRating/potato.num_of_reviews).toFixed(1);
                             
+                            potato.dateCreated = potato.date.toLocaleDateString();
+                            
                             // return potato in JSON format
                             res.json(potato);
                     });
