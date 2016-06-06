@@ -9,24 +9,31 @@ var middleware  = require("../middleware/middleware");
     // Index route
     router.get('/', 
         function(req, res) {
-            Potato.find(function(err, potatoes) { // Find all Potatoes in the database
-                // Handle errors
-                if (err){console.log(err)}
+
+            Potato.find()
+                .populate("reviews")    // add reviews to the potato
+                    .lean() //convert mongoose document into plain object so that properties can be changed
+                        .exec(function(err, potatoes) { // Find all Potatoes in the database
+                            // Handle errors
+                            if (err){console.log(err)}
+                            
+                            // Append Ratings
+                            function appendRatings(element, index, array){
+                                var totRating = 0;
+                                element.reviews.forEach(function(review){
+                                    totRating +=  review.rating;
+                                });
+                                
+                                element.num_of_reviews = element.reviews.length;
+                                element.average_rating = (totRating/element.num_of_reviews).toFixed(1);
+                            }
+                            
+                            potatoes.forEach(appendRatings);
                 
-                // Append Ratings
-                for (var i=0; i< potatoes.length; i++){
-                    var totRating = 0;
-                    for (var n=0; n < potatoes[i].reviews.length; n++){
-                        totRating +=  potatoes[i].reviews[n].rating;
-                    }
-                    potatoes[i].num_of_reviews = potatoes[i].reviews.length;
-                    potatoes[i].average_rating = (totRating/potatoes[i].num_of_reviews).toFixed(1);
-                }
-                
-                // return all potatoes in JSON format
-                res.json(potatoes); 
+                            // return all potatoes in JSON format  
+                            res.json(potatoes); 
+                        });
         });
-    });
 
     // Create route
     router.post('/', 
@@ -47,7 +54,8 @@ var middleware  = require("../middleware/middleware");
         function(req, res){
             Potato.findById(req.params.id) // Lookup Potato in database
                 .populate("reviews")    // add reviews to the potato
-                    .exec(function(err, potato){
+                    .lean() //convert mongoose document into plain object so that properties can be changed
+                        .exec(function(err, potato){
                             // Handle errors
                             if(err) {res.send(err)}
                             
