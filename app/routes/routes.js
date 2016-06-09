@@ -4,6 +4,10 @@ var userRoutes      = require("./userRoutes");
 var authRoutes      = require("./authRoutes");
 
 module.exports = function(app) {
+    
+//========================
+// API Routes
+//========================
 
 // Potato API Routes
 app.use("/api/potatoes", potatoRoutes);
@@ -17,8 +21,11 @@ app.use("/api/users", userRoutes);
 // User Auth API Routes
 app.use("/api/auth", authRoutes);
          
+         
+//========================
+// Front End Route
+//========================
 
-// frontend routes =========================================================
 // route to handle all angular 'get' requests not caught by any APIs above 
 app.get('*', function(req, res) {
     res.sendfile('./public/views/index.html'); // load our public/index.html file
