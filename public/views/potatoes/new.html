@@ -19,11 +19,15 @@
                                 <form ng-submit="newPotato()" class="clearfix">
                                     <div class="form-group">
                                         <label for="name">Potato Name</label>
-                                        <input placeholder="Potato Name" ng-model="potato.name" id="name" class="form-control"/>
+                                        <input placeholder="Potato Name" ng-model="potato.name" id="name" class="form-control" type="text" required/>
                                       </div>
                                       <div class="form-group">
                                         <label for="image">Potato Image</label>
-                                        <input placeholder="Potato Image URL" ng-model="potato.image" id="image" class="form-control"/>
+                                        <input placeholder="Potato Image URL" ng-model="potato.image" id="image" class="form-control" type="url" required/>
+                                      </div>
+                                      <div class="form-group">
+                                        <label for="description">Potato Description</label>
+                                        <textarea placeholder="Potato Description" ng-model="potato.description" id="description" class="form-control" required/>
                                       </div>
                                       <button type="submit" class="btn btn-default pull-right">Submit</button>
                                 </form>

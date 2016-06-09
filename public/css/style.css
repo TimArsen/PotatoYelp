@@ -53,11 +53,14 @@ a:hover {
     color: white;
     transition: all 0.3s ease-in-out;
     border-radius: .5em;
-    
 }
 
-.nav>li>a:focus, .navbar-nav>li>a:hover {
-    background: #74CB78;
+.nav>li>a:focus {
+    background: none;
+}
+
+.navbar-nav>li>a:hover {
+    background-color: #74CB78;
     color: white;
 }
 
@@ -184,6 +187,9 @@ header p {
 
 
 /* POTATOES PAGE STYLES */
+
+
+/* FILTERS */
 .filter-options {
     background: url('http://www.mediafire.com/convkey/00be/58n3z7k9cbkae0bzg.jpg');
     color: white;
@@ -207,27 +213,91 @@ header p {
     padding: 0;
 }
 
-.filter-options ul li {
+.filter-options ul li label {
     display: inline-block;
-    margin: 0 8px 5px 0;
-    padding: 8px 10px;
+    padding: .4em .25em .4em .5em;
     border: 1px solid #777;
     font-size: 2rem;
     font-weight: 700;
     background-color: #74CB78;
-    transition: all 0.4s ease;
+    transition: background-color 0.4s ease;
+    margin-bottom: 0px;
 }
 
-.filter-options ul li:hover {
-    background: #8a6d3b;
+.filter-options ul li label#search-btn {
+    padding: .4em .5em;
+}
+
+.filter-options ul li {
+    display: inline-block;
+    margin: 5px 2px;
+}
+
+.filter-options ul li label:hover {
+    background-color: #8a6d3b;
     cursor: pointer;
 }
 
-.filter-options-selected {
-    background: #333 !important;
-    color: #eee;
+#search-chkbx:checked ~ ul #search-btn, 
+#sort-name-radio:checked ~ ul #sort-name-btn, 
+#sort-rating-radio:checked ~ ul #sort-rating-btn, 
+#sort-reviews-radio:checked ~ ul #sort-reviews-btn, 
+#sort-date-radio:checked ~ ul #sort-date-btn
+{
+  background-color: #8a6d3b;
 }
 
+#query-title {
+    color: white;
+    font-family: 'Amatic SC';
+    display:none;
+    font-size: 6rem;
+    font-weight: 600;
+    padding: 20px 10px 0 10px;
+    overflow:hidden;
+    text-align: center;
+}
+
+#search-input {
+    background-color:transparent;
+    border:none;
+    width: 30px;
+    text-align: right;
+}
+
+#search-input:focus {
+    outline: none;
+}
+
+#cancel-search {
+    -webkit-appearance: initial;
+    background-color: rgba(30,30,30,0.1);
+    border:none;
+    border-radius: 50%;
+    display: inline-block;
+    width: 50px;
+    transition: background-color 0.1s ease;
+}
+
+#cancel-search:focus {
+    outline: none;
+}
+
+#cancel-placeholder {
+    display: inline-block;
+    width: 50px;
+}
+
+#cancel-search:hover {
+    background-color: rgba(30,30,30,0.3);
+}
+
+#query-title span {
+    display:inline-block;
+}
+
+
+/* POTATOES */
 
 .thumbnail {
     background: url('http://www.mediafire.com/convkey/00be/58n3z7k9cbkae0bzg.jpg');
@@ -261,10 +331,12 @@ a.thumbnail:hover {
     border-radius: .5em;
     height: 150px;
     overflow: hidden;
+    background: center/cover no-repeat;
 }
 
 .potatoes-listing img {
-    width: 100%;
+    min-width: 100%;
+    min-height: 100%;
     position: relative;
     top: 50%;
     left: 50%;
@@ -299,11 +371,11 @@ a.thumbnail:hover {
 }
 
 footer {
+    position:absolute;
     bottom: 0px;
     left: 0px;
     width: 100%;
     background: #8a6d3b;
-    background-size: cover;
     color: white;
     display: block;
     border-top: 3px solid #fcf8e3;
@@ -399,6 +471,8 @@ footer {
  
  .potato-name {
      white-space: nowrap;
+     overflow: hidden;
+    text-overflow: ellipsis;
  }
  
  .review {
@@ -561,7 +635,7 @@ hr {
     font-size: 2rem;
     font-weight: 700;
     background-color: #74CB78;
-    transition: all 0.4s ease;
+    transition: background-color 0.4s ease;
 }
 .form-button:hover {
     background-color: #8a6d3b;
@@ -576,10 +650,6 @@ hr {
 
 /* Styles for 5-potato review rating input*/
 
-.hidden {
-  display: none;
-}
-
 #tray {
   display: inline-block;
   vertical-align: -80%;
@@ -593,6 +663,7 @@ hr {
     height: 48px;
     background-position: 0 0;
     float: right;
+    margin: 0px;
 }
 
 #rate-1{

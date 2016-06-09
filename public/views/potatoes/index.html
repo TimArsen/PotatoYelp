@@ -11,24 +11,39 @@
     </div>
     
     <div class="row filter-options">
-        <div class="col-xs-12">
-            <div class="title">Sorting Options</div>
-        
+      <div class="col-xs-12">
+        <div class="title pull-left">Sorting Options</div>
+        <form>
+            <input class="hidden" type="checkbox" id="search-chkbx" ng-model="searching">
+            <input class="hidden" type="radio" name="sort" id="sort-name-radio" checked>
+            <input class="hidden" type="radio" name="sort" id="sort-rating-radio">
+            <input class="hidden" type="radio" name="sort" id="sort-reviews-radio">
+            <input class="hidden" type="radio" name="sort" id="sort-date-radio">
+            
+            
             <ul class="pull-right">
-                <li>Top Rated</li>
-                <li>Most Comments</li>
-                <li>Newest</li>
+                <li><label for="search-chkbx" ng-click="searchClick()" id="search-btn" title="Search">🔍</label></li>
+                <li><label ng-click="filter($event, 'name')" id="sort-name-btn" for="sort-name-radio" class="sort-asc" title="Sort Ascending">Name ▴</label></li>
+                <li><label ng-click="filter($event, '-average_rating')" id="sort-rating-btn" for="sort-rating-radio" class="sort-desc" title="Sort Descending">Top Rated ▾</label></li>
+                <li><label ng-click="filter($event, '-num_of_reviews')" id="sort-reviews-btn" for="sort-reviews-radio" class="sort-desc" title="Sort Descending">Most Reviews ▾</label></li>
+                <li><label ng-click="filter($event, '-date')" id="sort-date-btn" for="sort-date-radio" class="sort-desc" title="Sort Descending">Newest ▾</label></li>
             </ul>
-        </div>
+        </form>
+      </div>
     </div>
     
-    <div class='potatoes-listing' ng-repeat="potato in potatoes | orderBy:'name'">
+    <div id="query-title">
+        <input ng-keydown="resizeInput($event)" ng-keyup="resizeInputRemoval()" ng-blur="searchBlur()" ng-model="query" id="search-input" contenteditable="true" type="search">
+        <button ng-show="query" ng-click="searchCancel()" id="cancel-search">X</button>
+        <div ng-hide="query" id="cancel-placeholder"></div>
+        <span style="display:none">{{query}}</span><!--this span is used for dynamically setting the width of the input-->
+    </div>
+    
+    <div class='potatoes-listing' ng-repeat="potato in potatoes | orderBy:order | filter: query">
         <div class="col-xs-6 col-md-3 potato-gallery-potato">
             
             <a href="/potatoes/{{potato._id}}" class="thumbnail">
-                <div class="potato-image">
-                    <img ng-src="{{potato.image}}"/>
-                </div>
+                <div class="potato-image" style="background-image: url({{potato.image}})"></div>
                 <div class="caption">
                   <h3 class="potato-name">{{potato.name}}</h3>
                   <div class='row'>

@@ -9,7 +9,7 @@ angular.module('potatoApp')
                 // Update Potato
                 $scope.potato.$update(function(){
                     // Reroute to Potato Show page
-                    $location.path("/potatoes/" + $scope.potato._id);
+                    $location.path("/potatoes/" + $routeParams.id);
                 });
             };
 

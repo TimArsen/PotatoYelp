@@ -3,7 +3,7 @@ angular.module('potatoApp')
 
     $routeProvider
 
-        // landing page
+        // splash page
         .when('/', {
             templateUrl: 'views/home.html',
             controller: 'HomeController',
@@ -30,47 +30,21 @@ angular.module('potatoApp')
             controller: 'EditController'
         })
         
-        // SHOW Potato (individual)
+        // SHOW Potato 
         .when('/potatoes/:id', {
             templateUrl: 'views/potatoes/show.html',
             controller: 'ShowController'
         })
         
-        // USER AUTH ROUTES
+        // USER ROUTES
         //=======================================
-        
-        // Register
-        .when('/register', {
-            templateUrl: 'views/auth/register.html',
-            controller: 'RegisterController'
-        })
-        
-        // Login
-        .when('/login', {
-            templateUrl: 'views/auth/login.html',
-            controller: 'LoginController'
-        })
         
         // EDIT Profile
         .when('/profile', {
             templateUrl: 'views/auth/userProfile.html',
             controller: 'ProfileEditController'
-        })
-        
-        // REVIEW ROUTES
-        //=========================================
-        
-        // NEW Review
-        .when('/potatoes/reviews/:potato_id', {
-            templateUrl: '/views/reviews/new.html',
-            controller: 'NewReviewController'
-        })
-        
-        // EDIT Review
-        .when('/potatoes/reviews/:id', {
-            templateUrl: '/views/reviews/edit.html',
-            controller: 'EditReviewController'
         });
+        
 
     $locationProvider.html5Mode(true);
 

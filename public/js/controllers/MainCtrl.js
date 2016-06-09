@@ -12,7 +12,7 @@ angular.module('potatoApp')
             // Listen for logout event
             $scope.$on('event:auth-loginCancelled', function(event, data){
                 $rootScope.isLoggedin = false;
-                $scope.currentUser = {};
+                $scope.currentUser = data;
             });
             
             // Register Function
@@ -33,6 +33,10 @@ angular.module('potatoApp')
                     authService.loginCancelled();
                 });
             };
+            
+            // expand #footer-padding to size of footer so footer does not hide content
+            $( document ).ready(function() {
+                var footerHeight = $('footer').css('height');
+                $('#footer-padding').css('height', footerHeight);
+            });
 });
-
-    
