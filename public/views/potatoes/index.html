@@ -33,10 +33,9 @@
     </div>
     
     <div id="query-title">
-        <input ng-keydown="resizeInput($event)" ng-keyup="resizeInputRemoval()" ng-blur="searchBlur()" ng-model="query" id="search-input" contenteditable="true" type="search">
+        <span ng-blur="searchBlur()" ng-model="query" id="search-input" contenteditable></span>
         <button ng-show="query" ng-click="searchCancel()" id="cancel-search">X</button>
         <div ng-hide="query" id="cancel-placeholder"></div>
-        <span style="display:none">{{query}}</span><!--this span is used for dynamically setting the width of the input-->
     </div>
     
     <div class='potatoes-listing' ng-repeat="potato in potatoes | orderBy:order | filter: query">
