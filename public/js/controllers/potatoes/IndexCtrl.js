@@ -11,17 +11,13 @@ angular.module('potatoApp').controller('PotatoesController', function($scope, Po
         if ($scope.order == order || $scope.order == '-' + order || $scope.order == order.substr(1)) { // if the button is already chosen
             if ($scope.order.charAt(0) == '-') { // if the sort is already reverse
                 var nonreverse = $scope.order.substr(1); //set var nonreverse to the order str without the '-'
-                console.log("old", $scope.order)
                 $scope.order = nonreverse; //make the order nonreverse
-                console.log("new", $scope.order)
                 $(e.currentTarget).attr('title', 'Sort Ascending').html(
                     $(e.currentTarget).html().slice(0,-1) + "▴"
                     );
             } else { //if the sort is not already reverse
                 var reverse = '-' + $scope.order;
-                console.log("old", $scope.order)
                 $scope.order = reverse; //reverse the order
-                console.log("new", $scope.order)
                 $(e.currentTarget).attr('title', 'Sort Descending').html(
                     $(e.currentTarget).html().slice(0,-1) + "▾"
                     );
