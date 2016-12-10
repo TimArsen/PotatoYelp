@@ -22,7 +22,7 @@
             
             
             <ul class="pull-right">
-                <li><label for="search-chkbx" ng-click="searchClick()" id="search-btn" title="Search">🔍</label></li>
+                <li><label for="search-chkbx" ng-click="searchClick()" id="search-btn" title="Search" aria-label="Search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></label></li>
                 <li><label ng-click="filter($event, 'name')" id="sort-name-btn" for="sort-name-radio" class="sort-asc" title="Sort Ascending">Name ▴</label></li>
                 <li><label ng-click="filter($event, '-average_rating')" id="sort-rating-btn" for="sort-rating-radio" class="sort-desc" title="Sort Descending">Top Rated ▾</label></li>
                 <li><label ng-click="filter($event, '-num_of_reviews')" id="sort-reviews-btn" for="sort-reviews-radio" class="sort-desc" title="Sort Descending">Most Reviews ▾</label></li>

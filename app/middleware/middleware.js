@@ -3,6 +3,10 @@ var Review = require("../models/review");
 
 var middlewareObj = {};
 
+//============================
+// Check Potato Ownership
+//============================
+
 middlewareObj.checkPotatoOwnership = function(req, res, next) {
     if(req.isAuthenticated()){ // First check is user is currently logged in
         Potato.findById(req.params.id, function(err, foundPotato){ // Then find the potato in question
@@ -25,6 +29,10 @@ middlewareObj.checkPotatoOwnership = function(req, res, next) {
     }
 };
 
+//============================
+// Check Review Ownership
+//============================
+
 middlewareObj.checkReviewOwnership = function(req, res, next) {
     if(req.isAuthenticated()){
         Review.findById(req.params.id, // Find Review in database
@@ -45,6 +53,10 @@ middlewareObj.checkReviewOwnership = function(req, res, next) {
     res.status(401).send("You must be logged in to do that");
     }
 };
+
+//============================
+// Check User is Logged In
+//============================
 
 middlewareObj.isLoggedIn = function(req, res, next){
     if(req.isAuthenticated()){
