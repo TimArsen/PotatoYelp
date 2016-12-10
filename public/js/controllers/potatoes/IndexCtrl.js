@@ -24,7 +24,6 @@ angular.module('potatoApp').controller('PotatoesController', function($scope, Po
             }
         } else { //if clicking on a button different than the one chosen
             $scope.order = order;
-            console.log($scope.order)
             //reset title and arrow on all buttons
             $('.sort-desc').attr('title', 'Sort Descending').each(function() {
                     $(this).html(
