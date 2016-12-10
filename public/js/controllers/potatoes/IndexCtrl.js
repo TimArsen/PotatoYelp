@@ -6,28 +6,29 @@ angular.module('potatoApp').controller('PotatoesController', function($scope, Po
     
     $scope.searching = false;
     
-    var spaces = 0;
-    
-    var oldLength;
-    
     // set filter
     $scope.filter = function(e, order){ //ng-click function for sorting buttons
         if ($scope.order == order || $scope.order == '-' + order || $scope.order == order.substr(1)) { // if the button is already chosen
             if ($scope.order.charAt(0) == '-') { // if the sort is already reverse
-                var nonreverse = order.substr(1); //set var nonreverse to the order str without the '-'
+                var nonreverse = $scope.order.substr(1); //set var nonreverse to the order str without the '-'
+                console.log("old", $scope.order)
                 $scope.order = nonreverse; //make the order nonreverse
+                console.log("new", $scope.order)
                 $(e.currentTarget).attr('title', 'Sort Ascending').html(
                     $(e.currentTarget).html().slice(0,-1) + "▴"
                     );
             } else { //if the sort is not already reverse
-                var reverse = '-' + order;
+                var reverse = '-' + $scope.order;
+                console.log("old", $scope.order)
                 $scope.order = reverse; //reverse the order
+                console.log("new", $scope.order)
                 $(e.currentTarget).attr('title', 'Sort Descending').html(
                     $(e.currentTarget).html().slice(0,-1) + "▾"
                     );
             }
         } else { //if clicking on a button different than the one chosen
             $scope.order = order;
+            console.log($scope.order)
             //reset title and arrow on all buttons
             $('.sort-desc').attr('title', 'Sort Descending').each(function() {
                     $(this).html(
@@ -48,9 +49,6 @@ angular.module('potatoApp').controller('PotatoesController', function($scope, Po
             $('#query-title').slideUp(100, function() {
                 $('#search-chkbx').attr('checked',false);
                 $scope.searching = false;
-                $('#search-input').css("width", 30);
-                spaces = 0;
-                oldLength = 0;
             });
         }
     } 
@@ -61,7 +59,7 @@ angular.module('potatoApp').controller('PotatoesController', function($scope, Po
     }
     
     $scope.searchClick = function() { //ng-click function for search "🔍" button
-        if (!$scope.searching) {
+        if (!$scope.searching) { //if not already searching
             $('#query-title').slideDown(100);
             $('#search-input').focus();
         } else {
@@ -69,39 +67,46 @@ angular.module('potatoApp').controller('PotatoesController', function($scope, Po
         }
     }
     
-    
-    
-    $scope.resizeInput = function(e) { //resize the search input when text is entered to keep it centered
-        oldLength = $('#search-input').val().length;
-        var spanWidth = $('#query-title span').width() + 30; //set spanWidth to width of the hidden, dynamically-resized span
-        if (e.which === 32){ //if key is space bar, add 9 px to width
-            spaces++;
-        }
-        if (e.which === 8 || e.which === 46) { //if key is delete or backspace
-            setTimeout(function() {
-                spanWidth = $('#query-title span').width() + 30;
-                spaces = $('#search-input').val().split(" ").length - 1; //set spaces var to number of remaining spaces in input
-                $('#search-input').css("width", spanWidth + (spaces * 9));
-            }, 0.1);
-        } else {
-            $('#search-input').css("width", spanWidth + (spaces * 9));
-        }
-    }
-    
-    $scope.resizeInputRemoval = function() { //resize the search input when text is removed to keep it centered
-        setTimeout(function() {
-            var newLength = $('#search-input').val().length;
-            var spanWidth = $('#query-title span').width() + 30;
-            if (newLength <= oldLength) {
-                spaces = $('#search-input').val().split(" ").length - 1; //set spaces var to number of remaining spaces in input
-                $('#search-input').css("width", spanWidth + (spaces * 9));
-            }
-                
-            }, 0.1);
-        
-    }
-    
-    
 });
 
+/*
+this .directive allows us to use ng-model, 
+which normally applies only to inputs, 
+on any contenteditable element.  
+This is used for #search-input, a span, 
+which was made a span instead of an input 
+so that it could have a width:auto (not possible with inputs)
+and be centered.  for more info see: 
+http://fdietz.github.io/recipes-with-angular-js/common-user-interface-patterns/editing-text-in-place-using-html5-content-editable.html
+*/
+angular.module('potatoApp').directive("contenteditable", function() {
+  return {
+    restrict: "A",
+    require: "ngModel",
+    link: function(scope, element, attrs, ngModel) {
 
+      function read() {//The read function updates the model based on the view’s user input.
+          
+         //if last char is a space, the html value is '&nbsp;' , so we need to get rid of it so it doesn't mess up the model which is used for filtering
+        var newValue = element.html().split('&nbsp;');
+        
+        if (newValue[1] == "") { //if '&nbsp;' was found
+            newValue = newValue[0] + ' '; //replace it with a space char
+        } else {
+            newValue = newValue[0]; 
+        }
+          
+        ngModel.$setViewValue(newValue);
+        
+      }
+
+      ngModel.$render = function() { //the $render function is doing the same as read() but in the other direction, updating the view for us whenever the model changes.
+        element.html(ngModel.$viewValue || "");
+      };
+
+      element.bind("blur keyup change", function() {
+        scope.$apply(read);
+      });
+    }
+  };
+});

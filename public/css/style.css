@@ -269,8 +269,7 @@ header p {
 #search-input {
     background-color:transparent;
     border:none;
-    width: 30px;
-    text-align: right;
+    width: auto;
 }
 
 #search-input:focus {

@@ -22,7 +22,7 @@
             
             
             <ul class="pull-right">
-                <li><label for="search-chkbx" ng-click="searchClick()" id="search-btn" title="Search">🔍</label></li>
+                <li><label for="search-chkbx" ng-click="searchClick()" id="search-btn" title="Search" aria-label="Search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></label></li>
                 <li><label ng-click="filter($event, 'name')" id="sort-name-btn" for="sort-name-radio" class="sort-asc" title="Sort Ascending">Name ▴</label></li>
                 <li><label ng-click="filter($event, '-average_rating')" id="sort-rating-btn" for="sort-rating-radio" class="sort-desc" title="Sort Descending">Top Rated ▾</label></li>
                 <li><label ng-click="filter($event, '-num_of_reviews')" id="sort-reviews-btn" for="sort-reviews-radio" class="sort-desc" title="Sort Descending">Most Reviews ▾</label></li>
@@ -33,10 +33,9 @@
     </div>
     
     <div id="query-title">
-        <input ng-keydown="resizeInput($event)" ng-keyup="resizeInputRemoval()" ng-blur="searchBlur()" ng-model="query" id="search-input" contenteditable="true" type="search">
+        <span ng-blur="searchBlur()" ng-model="query" id="search-input" contenteditable></span>
         <button ng-show="query" ng-click="searchCancel()" id="cancel-search">X</button>
         <div ng-hide="query" id="cancel-placeholder"></div>
-        <span style="display:none">{{query}}</span><!--this span is used for dynamically setting the width of the input-->
     </div>
     
     <div class='potatoes-listing' ng-repeat="potato in potatoes | orderBy:order | filter: query">
